@@ -1295,6 +1295,16 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "Change DC Jack to\nPN DC-053D-20A Korean Hroparts Elec \nLCSC C707274\n"
+		(exclude_from_sim no)
+		(at 76.708 50.292 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "70578c40-711f-467a-bccd-bceee6d4eabc")
+	)
 	(text "External power supply"
 		(exclude_from_sim no)
 		(at 77.978 24.892 0)
@@ -1849,7 +1859,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "arena_custom:DCJACK_2PIN_HIGHCURRENT"
+		(property "Footprint" "arena_custom:DC-053D-20A"
 			(at 76.2 69.596 0)
 			(effects
 				(font
@@ -1986,7 +1996,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "arena_custom:DCJACK_2PIN_HIGHCURRENT"
+		(property "Footprint" "arena_custom:DC-053D-20A"
 			(at 76.2 32.766 0)
 			(effects
 				(font

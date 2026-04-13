@@ -1,4 +1,4 @@
-26221699877710365
+26223475911885499
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -104208,6 +104208,13 @@ D24V6Fx
 0
 4
 4
+arena_custom
+DC-053D-20A
+
+
+0
+0
+0
 arena_custom
 DCJACK_2PIN_HIGHCURRENT
 
