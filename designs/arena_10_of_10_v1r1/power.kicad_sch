@@ -1895,6 +1895,15 @@
 				(hide yes)
 			)
 		)
+		(property "FT Position Offset" "0,-1.143"
+			(at 77.47 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "4c84c79f-5fc9-4efb-8c73-9db594401567")
 		)
@@ -2033,6 +2042,15 @@
 			)
 		)
 		(property "LCSC Part #" "C707274"
+			(at 77.47 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "FT Position Offset" "0,-1.143"
 			(at 77.47 31.75 0)
 			(effects
 				(font
