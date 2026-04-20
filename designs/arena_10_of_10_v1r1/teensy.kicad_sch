@@ -7144,6 +7144,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C25105"
+			(at 109.22 45.72 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "72b4ed81-74eb-41cd-adc2-41209eca4543")
 		)
@@ -7269,6 +7278,15 @@
 		)
 		(property "Description" "Resistor, small symbol"
 			(at 45.72 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C25105"
+			(at 45.72 45.72 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7478,6 +7496,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C124375"
+			(at 140.97 22.86 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "5f50242d-2e78-4792-ad72-7d5f224ae217")
 		)
@@ -7603,6 +7630,15 @@
 		)
 		(property "Description" "Resistor, small symbol"
 			(at 45.72 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C25105"
+			(at 45.72 48.26 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7743,6 +7779,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C25105"
+			(at 45.72 66.04 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "bcd91842-6f9b-4f4d-914f-6296c8d670e0")
 		)
@@ -7875,6 +7920,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C25105"
+			(at 45.72 93.98 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "547e8767-c851-41a9-80ed-0178ff6b5dcc")
 		)
@@ -7936,6 +7990,15 @@
 		)
 		(property "Description" "Resistor, small symbol"
 			(at 148.59 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C11702"
+			(at 148.59 49.53 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8076,6 +8139,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C25105"
+			(at 109.22 50.8 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "e048ade7-0bd8-4f2e-8612-ccbe347c4686")
 		)
@@ -8110,7 +8182,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100nF"
+		(property "Value" "0.1uF"
 			(at 50.8 157.4799 0)
 			(effects
 				(font
@@ -8189,7 +8261,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100nF"
+		(property "Value" "0.1uF"
 			(at 205.74 157.4799 0)
 			(effects
 				(font
@@ -8295,6 +8367,15 @@
 		)
 		(property "Description" "Resistor, small symbol"
 			(at 109.22 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C25105"
+			(at 109.22 48.26 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8435,6 +8516,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C25105"
+			(at 45.72 86.36 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "38691b47-447a-42e4-a861-7db5002d7158")
 		)
@@ -8494,6 +8584,15 @@
 			)
 		)
 		(property "Description" "Single Power Supply, Single Buffer GATE, CMOS Logic, Level Shifter, SOT-23-5"
+			(at 152.4 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C100024"
 			(at 152.4 129.54 0)
 			(effects
 				(font
@@ -8572,6 +8671,15 @@
 			)
 		)
 		(property "Description" ""
+			(at 86.36 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C910371"
 			(at 86.36 157.48 0)
 			(effects
 				(font
@@ -8673,6 +8781,15 @@
 			)
 		)
 		(property "Description" "coaxial connector (BNC, SMA, SMB, SMC, Cinch/RCA, LEMO, ...)"
+			(at 175.26 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C2837587"
 			(at 175.26 97.79 0)
 			(effects
 				(font
@@ -8880,6 +8997,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C25105"
+			(at 45.72 60.96 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "3e44609b-1901-4b9e-8059-bfbce94a76cc")
 		)
@@ -8940,6 +9066,15 @@
 		)
 		(property "Description" "Resistor, small symbol"
 			(at 45.72 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C25105"
+			(at 45.72 55.88 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9015,6 +9150,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C25105"
+			(at 109.22 71.12 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "f0d4a4ae-b2f8-4232-a446-43e98a52b0ef")
 		)
@@ -9075,6 +9219,15 @@
 		)
 		(property "Description" "Resistor, small symbol"
 			(at 45.72 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C25105"
+			(at 45.72 81.28 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9145,6 +9298,15 @@
 			)
 		)
 		(property "Description" "coaxial connector (BNC, SMA, SMB, SMC, Cinch/RCA, LEMO, ...)"
+			(at 175.26 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C2837587"
 			(at 175.26 129.54 0)
 			(effects
 				(font
@@ -9417,6 +9579,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C25105"
+			(at 45.72 68.58 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "cd2c8acd-ba02-40ca-ae04-8df96ab77149")
 		)
@@ -9477,6 +9648,15 @@
 		)
 		(property "Description" "Resistor, small symbol"
 			(at 45.72 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C25105"
+			(at 45.72 50.8 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9551,6 +9731,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C25105"
+			(at 45.72 83.82 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "5fdee8f2-e110-45c2-b241-f6f5a83e6e0b")
 		)
@@ -9611,6 +9800,15 @@
 		)
 		(property "Description" "Resistor, small symbol"
 			(at 45.72 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C25105"
+			(at 45.72 58.42 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9718,7 +9916,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100nF"
+		(property "Value" "0.1uF"
 			(at 191.77 157.4799 0)
 			(effects
 				(font
@@ -10028,6 +10226,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C25105"
+			(at 109.22 96.52 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "51c50407-8eea-4e0d-b0f0-b933c236406f")
 		)
@@ -10095,6 +10302,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C25105"
+			(at 45.72 91.44 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "e160834f-3783-4b48-8eea-037956c28c61")
 		)
@@ -10154,6 +10370,15 @@
 			)
 		)
 		(property "Description" "Single Power Supply, Single Buffer GATE, CMOS Logic, Level Shifter, SOT-23-5"
+			(at 152.4 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C100024"
 			(at 152.4 97.79 0)
 			(effects
 				(font
@@ -10303,6 +10528,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C25105"
+			(at 45.72 76.2 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "fe8d42a2-bb0d-464a-8c95-f3292f7fc369")
 		)
@@ -10323,9 +10557,9 @@
 		(at 77.47 92.71 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "ba23f149-e4f5-43b6-ba81-26e8a4373efd")
 		(property "Reference" "U1"
@@ -10660,6 +10894,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C25105"
+			(at 45.72 78.74 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "9c539d84-5507-4c32-9d34-9dc23ac01f75")
 		)
@@ -10720,6 +10963,15 @@
 		)
 		(property "Description" "Resistor, small symbol"
 			(at 45.72 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C25105"
+			(at 45.72 88.9 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10794,6 +11046,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C25105"
+			(at 45.72 96.52 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "90c2e90c-f56f-4e5f-85c1-33a01cdb157f")
 		)
@@ -10855,6 +11116,15 @@
 		)
 		(property "Description" "Resistor, small symbol"
 			(at 143.51 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C11702"
+			(at 143.51 49.53 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10988,6 +11258,15 @@
 		)
 		(property "Description" "Resistor, small symbol"
 			(at 45.72 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C25105"
+			(at 45.72 53.34 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11194,6 +11473,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C25105"
+			(at 45.72 63.5 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "65aa2979-514d-4289-853a-5c75dca8e9a5")
 		)
@@ -11254,6 +11542,15 @@
 		)
 		(property "Description" "Resistor, small symbol"
 			(at 45.72 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C25105"
+			(at 45.72 40.64 90)
 			(effects
 				(font
 					(size 1.27 1.27)

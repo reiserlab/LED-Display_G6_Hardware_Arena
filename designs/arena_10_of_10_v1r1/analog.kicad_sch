@@ -4151,7 +4151,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1uF"
+		(property "Value" "100nF"
 			(at 132.08 250.1962 0)
 			(effects
 				(font
@@ -4179,6 +4179,15 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 129.54 248.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C307331"
 			(at 129.54 248.92 0)
 			(effects
 				(font
@@ -4314,6 +4323,15 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 104.14 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C705630 "
 			(at 104.14 127 0)
 			(effects
 				(font
@@ -4521,6 +4539,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C24460"
+			(at 86.36 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "bdc306cf-c41b-4e89-8147-9b6cf547d100")
 		)
@@ -4601,6 +4628,15 @@
 		)
 		(property "Description" "Resistor, small symbol"
 			(at 166.37 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C190095 "
+			(at 166.37 119.38 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4743,6 +4779,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C89632"
+			(at 87.63 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "bd1947a3-3696-44cc-9d4a-2cfa7840e728")
 		)
@@ -4804,6 +4849,15 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 104.14 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C705630 "
 			(at 104.14 85.09 0)
 			(effects
 				(font
@@ -4911,7 +4965,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1uF"
+		(property "Value" "100nF"
 			(at 50.8 152.4062 0)
 			(effects
 				(font
@@ -4939,6 +4993,15 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 48.26 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C307331"
 			(at 48.26 151.13 0)
 			(effects
 				(font
@@ -5082,6 +5145,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C89632"
+			(at 140.97 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "64ec918c-2a93-4f50-9379-06dd61db9aa8")
 		)
@@ -5144,6 +5216,15 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 101.6 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C89632"
 			(at 101.6 222.25 0)
 			(effects
 				(font
@@ -5353,6 +5434,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C190095 "
+			(at 166.37 77.47 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "376c456b-17e9-4928-9a5f-f8b11001c514")
 		)
@@ -5453,7 +5543,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1uF"
+		(property "Value" "100nF"
 			(at 142.24 173.9962 0)
 			(effects
 				(font
@@ -5481,6 +5571,15 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 139.7 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C307331"
 			(at 139.7 172.72 0)
 			(effects
 				(font
@@ -5549,6 +5648,15 @@
 			)
 		)
 		(property "Description" "Dual High Precision Operational Amplifiers, DIP-8/SOIC-8"
+			(at 118.11 190.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C24460"
 			(at 118.11 190.5 0)
 			(effects
 				(font
@@ -5907,6 +6015,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C7502688"
+			(at 158.75 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "01568bf9-92b8-4e7d-8b8c-fcdfa663a50a")
 		)
@@ -5972,6 +6089,15 @@
 		)
 		(property "Description" "Resistor, small symbol"
 			(at 110.49 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C190095 "
+			(at 110.49 121.92 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6107,6 +6233,15 @@
 			)
 		)
 		(property "Description" "Dual High Precision Operational Amplifiers, DIP-8/SOIC-8"
+			(at 40.64 233.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C24460"
 			(at 40.64 233.68 0)
 			(effects
 				(font
@@ -6269,6 +6404,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C1525"
+			(at 76.2 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "94ec113b-8fa0-46aa-850e-83aacff16ad7")
 		)
@@ -6405,6 +6549,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C89632"
+			(at 39.37 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "1a162c99-d5c3-48c7-8a25-5cd7777f8bfa")
 		)
@@ -6465,6 +6618,15 @@
 			)
 		)
 		(property "Description" "Dual High Precision Operational Amplifiers, DIP-8/SOIC-8"
+			(at 86.36 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C24460"
 			(at 86.36 124.46 0)
 			(effects
 				(font
@@ -6617,6 +6779,15 @@
 			)
 		)
 		(property "Description" "Dual High Precision Operational Amplifiers, DIP-8/SOIC-8"
+			(at 125.73 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C24460"
 			(at 125.73 121.92 0)
 			(effects
 				(font
@@ -6779,6 +6950,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C2837587"
+			(at 182.88 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "007de795-23c3-45fd-908b-3851f27dc4ed")
 		)
@@ -6849,6 +7029,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C89632"
+			(at 59.69 247.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "23f57ac1-d1a8-47fb-8f78-94db2acb2140")
 		)
@@ -6883,7 +7072,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1uF"
+		(property "Value" "100nF"
 			(at 132.08 223.5262 0)
 			(effects
 				(font
@@ -6911,6 +7100,15 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 129.54 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C307331"
 			(at 129.54 222.25 0)
 			(effects
 				(font
@@ -7186,6 +7384,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C190095 "
+			(at 137.16 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "96f49ba3-83d6-44ac-9df2-e4db1f808cf5")
 		)
@@ -7256,6 +7463,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C89632"
+			(at 59.69 220.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "1a7f75d1-eee0-42d5-9201-47d9bc665d76")
 		)
@@ -7290,7 +7506,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1uF"
+		(property "Value" "100nF"
 			(at 87.63 171.4562 0)
 			(effects
 				(font
@@ -7318,6 +7534,15 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 85.09 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C307331"
 			(at 85.09 170.18 0)
 			(effects
 				(font
@@ -7387,6 +7612,15 @@
 			)
 		)
 		(property "Description" "40V 0.2A Dual Small Signal Schottky Diodes"
+			(at 158.75 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C7502688"
 			(at 158.75 67.31 0)
 			(effects
 				(font
@@ -7563,7 +7797,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1uF"
+		(property "Value" "100nF"
 			(at 50.8 248.9262 0)
 			(effects
 				(font
@@ -7591,6 +7825,15 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 48.26 247.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C307331"
 			(at 48.26 247.65 0)
 			(effects
 				(font
@@ -7735,6 +7978,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C24460"
+			(at 121.92 234.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "8"
 			(uuid "33b30094-df0b-4d53-9f9a-c167fdd6c458")
 		)
@@ -7826,6 +8078,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C81460"
+			(at 69.85 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "8"
 			(uuid "0467c1f9-2bb4-420d-9cda-f731c83fb77d")
 		)
@@ -7904,6 +8165,15 @@
 			)
 		)
 		(property "Description" "Dual High Precision Operational Amplifiers, DIP-8/SOIC-8"
+			(at 125.73 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C24460"
 			(at 125.73 80.01 0)
 			(effects
 				(font
@@ -8029,7 +8299,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1uF"
+		(property "Value" "100nF"
 			(at 92.71 223.5262 0)
 			(effects
 				(font
@@ -8057,6 +8327,15 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 90.17 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C307331"
 			(at 90.17 222.25 0)
 			(effects
 				(font
@@ -8128,6 +8407,15 @@
 			)
 		)
 		(property "Description" "coaxial connector (BNC, SMA, SMB, SMC, Cinch/RCA, LEMO, ...)"
+			(at 182.88 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C2837587"
 			(at 182.88 77.47 0)
 			(effects
 				(font
@@ -8532,6 +8820,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C7502688"
+			(at 60.96 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "1e66de90-2bc7-4d3b-9363-bac1939f818f")
 		)
@@ -8733,6 +9030,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C24460"
+			(at 116.84 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "8"
 			(uuid "33b30094-df0b-4d53-9f9a-c167fdd6c459")
 		)
@@ -8820,6 +9126,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C7502688"
+			(at 60.96 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "e5687e60-2a24-4f21-b2b0-573ed10e722d")
 		)
@@ -8882,6 +9197,15 @@
 			)
 		)
 		(property "Description" "12-bit Digital-to-Analog Converter, integrated EEPROM, I2C interface, SOT-23-6"
+			(at 71.12 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C144198"
 			(at 71.12 41.91 0)
 			(effects
 				(font
@@ -9068,7 +9392,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1uF"
+		(property "Value" "100nF"
 			(at 50.8 222.2562 0)
 			(effects
 				(font
@@ -9096,6 +9420,15 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 48.26 220.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C307331"
 			(at 48.26 220.98 0)
 			(effects
 				(font
@@ -9173,6 +9506,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C190095 "
+			(at 137.16 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "b4d01f82-e903-4e89-88c6-2f7b6ba50c4e")
 		)
@@ -9235,6 +9577,15 @@
 		)
 		(property "Description" "Resistor, small symbol"
 			(at 110.49 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C190095 "
+			(at 110.49 80.01 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9305,6 +9656,15 @@
 			)
 		)
 		(property "Description" "coaxial connector (BNC, SMA, SMB, SMC, Cinch/RCA, LEMO, ...)"
+			(at 105.41 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C2837587"
 			(at 105.41 41.91 0)
 			(effects
 				(font
@@ -9581,6 +9941,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C24460"
+			(at 82.55 234.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "bdc306cf-c41b-4e89-8147-9b6cf547d102")
 		)
@@ -9633,7 +10002,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1uF"
+		(property "Value" "100nF"
 			(at 92.71 250.1962 0)
 			(effects
 				(font
@@ -9661,6 +10030,15 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 90.17 248.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C307331"
 			(at 90.17 248.92 0)
 			(effects
 				(font
@@ -9731,6 +10109,15 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 140.97 248.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C89632"
 			(at 140.97 248.92 0)
 			(effects
 				(font
@@ -9999,6 +10386,15 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 101.6 248.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C89632"
 			(at 101.6 248.92 0)
 			(effects
 				(font

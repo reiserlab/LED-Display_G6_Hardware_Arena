@@ -1413,6 +1413,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C7394037"
+			(at 73.66 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "0ec6c131-3987-4e82-bb99-2792c8208bfd")
 		)
@@ -1505,6 +1514,15 @@
 			)
 		)
 		(property "Description" "Dual Buffer, Schmitt Triggered, Low-Voltage CMOS"
+			(at 73.66 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C7394037"
 			(at 73.66 88.9 0)
 			(effects
 				(font
@@ -1615,6 +1633,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C1525"
+			(at 229.87 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "835a5143-cba7-436c-a459-31418b51ff11")
 		)
@@ -1697,6 +1724,15 @@
 			)
 		)
 		(property "Description" "Dual Buffer, Schmitt Triggered, Low-Voltage CMOS"
+			(at 205.74 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C7394037"
 			(at 205.74 53.34 0)
 			(effects
 				(font
@@ -1805,6 +1841,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C7394037"
+			(at 73.66 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "9591d13c-310f-44cd-98bd-4586b9130349")
 		)
@@ -1904,6 +1949,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C25105"
+			(at 91.44 72.39 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "15128abe-14f2-416e-b262-9372122d34ee")
 		)
@@ -1984,6 +2038,15 @@
 			)
 		)
 		(property "Description" "Dual Buffer, Schmitt Triggered, Low-Voltage CMOS"
+			(at 73.66 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C7394037"
 			(at 73.66 72.39 0)
 			(effects
 				(font
@@ -2091,6 +2154,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C25105"
+			(at 91.44 105.41 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "f8a9e460-1c3a-4626-92b7-adb61973c5cf")
 		)
@@ -2171,6 +2243,15 @@
 		)
 		(property "Description" "Resistor, small symbol"
 			(at 91.44 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C25105"
+			(at 91.44 39.37 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2610,6 +2691,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C7394037"
+			(at 73.66 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "c09982a5-3706-4ea7-a7a3-7c76cf9d31da")
 		)
@@ -2712,6 +2802,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C1525"
+			(at 190.5 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "ae50a381-be9f-45dd-a147-29883553e05f")
 		)
@@ -2792,6 +2891,15 @@
 		)
 		(property "Description" "Resistor, small symbol"
 			(at 91.44 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C25105"
+			(at 91.44 55.88 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2972,6 +3080,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C25105"
+			(at 91.44 88.9 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "b22bc501-4c46-4139-a7b5-4af32d36d1e8")
 		)
@@ -3054,6 +3171,15 @@
 			)
 		)
 		(property "Description" "Dual Buffer, Schmitt Triggered, Low-Voltage CMOS"
+			(at 166.37 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C7394037"
 			(at 166.37 53.34 0)
 			(effects
 				(font
@@ -3420,6 +3546,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C7394037"
+			(at 73.66 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "9591d13c-310f-44cd-98bd-4586b913034b")
 		)
@@ -3514,6 +3649,15 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 151.13 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C1525"
 			(at 151.13 48.26 0)
 			(effects
 				(font
@@ -3690,6 +3834,15 @@
 			)
 		)
 		(property "Description" "Dual Buffer, Schmitt Triggered, Low-Voltage CMOS"
+			(at 245.11 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C7394037"
 			(at 245.11 53.34 0)
 			(effects
 				(font

@@ -999,6 +999,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C25105"
+			(at 100.33 43.18 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "85aa9e2e-0c76-4538-ae1f-fe265c3edc9c")
 		)
@@ -1135,6 +1144,15 @@
 			)
 		)
 		(property "Description" "Dual Buffer, Schmitt Triggered, Low-Voltage CMOS"
+			(at 82.55 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C7394037"
 			(at 82.55 43.18 0)
 			(effects
 				(font
@@ -1293,6 +1311,15 @@
 			)
 		)
 		(property "Description" "Dual Buffer, Schmitt Triggered, Low-Voltage CMOS"
+			(at 166.37 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C7394037"
 			(at 166.37 54.61 0)
 			(effects
 				(font
@@ -1599,6 +1626,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C7394037"
+			(at 82.55 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "d1ee2f98-3a81-4b2d-869d-2e3b9aca65f1")
 		)
@@ -1749,6 +1785,15 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 151.13 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C1525"
 			(at 151.13 49.53 0)
 			(effects
 				(font
@@ -2035,6 +2080,15 @@
 		)
 		(property "Description" "Resistor, small symbol"
 			(at 100.33 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C25105"
+			(at 100.33 59.69 90)
 			(effects
 				(font
 					(size 1.27 1.27)

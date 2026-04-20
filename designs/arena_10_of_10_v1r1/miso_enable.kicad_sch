@@ -2656,6 +2656,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C1525"
+			(at 186.69 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "fe82daa9-8c03-4be2-89e5-05430b71e71b")
 		)
@@ -2752,6 +2761,15 @@
 			)
 		)
 		(property "Description" "Single Buffer Gate Tri-State, Low-Voltage CMOS"
+			(at 68.58 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C7394030"
 			(at 68.58 78.74 0)
 			(effects
 				(font
@@ -2866,6 +2884,15 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 68.58 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C5948099"
 			(at 68.58 44.45 0)
 			(effects
 				(font
@@ -3080,6 +3107,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C7394037"
+			(at 246.38 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "5255e49c-c1ca-44d0-88b0-0e687ba9216a")
 		)
@@ -3191,6 +3227,15 @@
 		)
 		(property "Description" ""
 			(at 115.57 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C2868021"
+			(at 115.57 46.99 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3643,6 +3688,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C25105"
+			(at 52.07 78.74 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "0a4b784c-b2cd-47ad-b59e-4ac0723636b2")
 		)
@@ -3739,6 +3793,15 @@
 		)
 		(property "Description" "Resistor, small symbol"
 			(at 90.17 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C25105"
+			(at 90.17 78.74 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3844,6 +3907,15 @@
 		)
 		(property "Description" ""
 			(at 199.39 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C2868021"
+			(at 199.39 80.01 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4087,6 +4159,15 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 224.79 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C1525"
 			(at 224.79 49.53 0)
 			(effects
 				(font
@@ -4711,6 +4792,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C2868021"
+			(at 115.57 59.69 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "8"
 			(uuid "5c3e2e27-d9d3-4ef6-8dfd-140f5f5f330e")
 		)
@@ -4852,6 +4942,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C1525"
+			(at 73.66 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "68b88643-a0e4-4be1-b1d5-2d9584713e8d")
 		)
@@ -4950,6 +5049,15 @@
 			)
 		)
 		(property "Description" "Dual Buffer, Schmitt Triggered, Low-Voltage CMOS"
+			(at 242.57 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C7394037"
 			(at 242.57 54.61 0)
 			(effects
 				(font
@@ -5070,6 +5178,15 @@
 		)
 		(property "Description" ""
 			(at 91.44 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C2868021"
+			(at 91.44 53.34 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5208,6 +5325,15 @@
 			)
 		)
 		(property "Description" "Dual Buffer, Schmitt Triggered, Low-Voltage CMOS"
+			(at 107.95 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C7394037"
 			(at 107.95 78.74 0)
 			(effects
 				(font
@@ -5530,6 +5656,15 @@
 			)
 		)
 		(property "Description" ""
+			(at 201.93 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C2868021"
 			(at 201.93 54.61 0)
 			(effects
 				(font
