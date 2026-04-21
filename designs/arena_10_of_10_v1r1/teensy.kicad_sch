@@ -5060,6 +5060,16 @@
 	)
 	(wire
 		(pts
+			(xy 142.24 124.46) (xy 142.24 132.08)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3af32cc1-ebc1-4a02-8e36-0dbf0cacad01")
+	)
+	(wire
+		(pts
 			(xy 54.61 160.02) (xy 54.61 161.29)
 		)
 		(stroke
@@ -5390,7 +5400,7 @@
 	)
 	(wire
 		(pts
-			(xy 144.78 123.19) (xy 144.78 135.89)
+			(xy 144.78 116.84) (xy 144.78 135.89)
 		)
 		(stroke
 			(width 0)
@@ -5677,6 +5687,16 @@
 			(type default)
 		)
 		(uuid "7ff2ac48-3690-495c-ac63-2e57e9c5d1a2")
+	)
+	(wire
+		(pts
+			(xy 142.24 116.84) (xy 142.24 119.38)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "80c502b7-465c-49fe-a8df-b05327115278")
 	)
 	(wire
 		(pts
@@ -6027,16 +6047,6 @@
 			(type default)
 		)
 		(uuid "b2739c28-6b96-4804-8f18-d668ad354532")
-	)
-	(wire
-		(pts
-			(xy 142.24 123.19) (xy 142.24 130.81)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b3aae819-2a64-4af8-8f84-cb99add2d6bb")
 	)
 	(wire
 		(pts
@@ -7159,7 +7169,7 @@
 		(uuid "d6ed566b-6432-40bc-af97-8f633132b37c")
 	)
 	(label "TNY.EINT"
-		(at 142.24 130.81 90)
+		(at 142.24 132.08 90)
 		(effects
 			(font
 				(size 1.016 1.016)
@@ -9080,7 +9090,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x02")
-		(at 142.24 118.11 90)
+		(at 142.24 111.76 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9089,7 +9099,7 @@
 		(fields_autoplaced yes)
 		(uuid "51b9d648-5c8d-49dd-8ae8-648a7c3bdac8")
 		(property "Reference" "J30"
-			(at 147.32 118.1099 90)
+			(at 147.32 111.7599 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9098,7 +9108,7 @@
 			)
 		)
 		(property "Value" "Conn_01x02"
-			(at 147.32 119.3799 90)
+			(at 147.32 113.0299 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9108,7 +9118,7 @@
 			)
 		)
 		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
-			(at 142.24 118.11 0)
+			(at 142.24 111.76 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9117,7 +9127,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 142.24 118.11 0)
+			(at 142.24 111.76 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9126,7 +9136,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 142.24 118.11 0)
+			(at 142.24 111.76 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9135,7 +9145,7 @@
 			)
 		)
 		(property "LCSC Part #" "C124375"
-			(at 142.24 118.11 90)
+			(at 142.24 111.76 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9144,7 +9154,7 @@
 			)
 		)
 		(property "FT Rotation Offset" "90"
-			(at 142.24 118.11 90)
+			(at 142.24 111.76 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10148,6 +10158,83 @@
 			(project "arena_10_of_10_v1r1"
 				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/49d7122d-250d-4ac4-9432-46d5d4ec4ae4"
 					(reference "#PWR09")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 142.24 121.92 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "8c606c6f-7834-444f-8ea8-28d29538eddb")
+		(property "Reference" "R216"
+			(at 140.716 121.92 90)
+			(effects
+				(font
+					(size 0.762 0.762)
+				)
+			)
+		)
+		(property "Value" "1k"
+			(at 142.24 121.92 90)
+			(effects
+				(font
+					(size 0.762 0.762)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 142.24 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 142.24 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 142.24 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C11702"
+			(at 142.24 121.92 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "a59d60b2-816b-4802-b90b-0ef2b602a978")
+		)
+		(pin "1"
+			(uuid "1e6e96bf-3ba0-4061-a12c-14b782568c24")
+		)
+		(instances
+			(project "arena_10_of_10_v1r1"
+				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/49d7122d-250d-4ac4-9432-46d5d4ec4ae4"
+					(reference "R216")
 					(unit 1)
 				)
 			)
