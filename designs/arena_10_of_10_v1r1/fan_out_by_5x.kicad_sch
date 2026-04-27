@@ -4,6 +4,12 @@
 	(generator_version "9.0")
 	(uuid "8be46119-98c0-4176-8a5e-44a7301bbccb")
 	(paper "A4")
+	(title_block
+		(title "G6 Teensy 10-10 Arena")
+		(date "2026-04-22")
+		(rev "v1.1.4")
+		(company "IORodeo for Reiser Lab @ Janelia | HHMI")
+	)
 	(lib_symbols
 		(symbol "+3.3V_1"
 			(power)
@@ -1332,7 +1338,7 @@
 			(uuid "459254fa-6afd-49ad-9eed-443b2c9bec15")
 		)
 		(instances
-			(project ""
+			(project "arena_10_of_10_v1r1"
 				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/0054750e-5233-4364-a758-64054997e15b/3f5f96af-e1b5-4d49-9adf-d2487a85db3a"
 					(reference "#PWR0450")
 					(unit 1)
@@ -3465,7 +3471,7 @@
 			(uuid "c3d5619f-b1de-4976-87b7-b5ee10a1cb76")
 		)
 		(instances
-			(project ""
+			(project "arena_10_of_10_v1r1"
 				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/0054750e-5233-4364-a758-64054997e15b/3f5f96af-e1b5-4d49-9adf-d2487a85db3a"
 					(reference "#PWR0456")
 					(unit 1)

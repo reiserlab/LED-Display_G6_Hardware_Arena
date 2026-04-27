@@ -4,6 +4,12 @@
 	(generator_version "9.0")
 	(uuid "d189f51f-f642-4f5d-bbe8-7dac1f23876f")
 	(paper "User" 279.4 304.8)
+	(title_block
+		(title "G6 Teensy 10-10 Arena")
+		(date "2026-04-22")
+		(rev "v1.1.4")
+		(company "IORodeo for Reiser Lab @ Janelia | HHMI")
+	)
 	(lib_symbols)
 	(text "CS for column P2"
 		(exclude_from_sim no)

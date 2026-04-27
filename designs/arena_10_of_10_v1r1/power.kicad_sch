@@ -4,6 +4,12 @@
 	(generator_version "9.0")
 	(uuid "41a850c6-ee9b-4e26-be83-1e746fd31b58")
 	(paper "A4")
+	(title_block
+		(title "G6 Teensy 10-10 Arena")
+		(date "2026-04-22")
+		(rev "v1.1.4")
+		(company "IORodeo for Reiser Lab @ Janelia | HHMI")
+	)
 	(lib_symbols
 		(symbol "+5V_1"
 			(power)
@@ -1357,12 +1363,6 @@
 		(uuid "e4970959-e345-4d83-88c9-51f1be77aaf9")
 	)
 	(junction
-		(at 63.5 34.29)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "37d01c16-d597-4001-82c0-57d44f732549")
-	)
-	(junction
 		(at 33.02 31.75)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1373,6 +1373,10 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9ef4632d-bffe-4d67-95bd-387a10099eb4")
+	)
+	(no_connect
+		(at 49.53 34.29)
+		(uuid "a7aefd2b-66da-4a83-af1b-0987323b7fd6")
 	)
 	(wire
 		(pts
@@ -1433,16 +1437,6 @@
 			(type default)
 		)
 		(uuid "24a79f51-922c-47e6-b857-e1795e35f4ff")
-	)
-	(wire
-		(pts
-			(xy 49.53 34.29) (xy 63.5 34.29)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2b763ac7-09e1-4a83-88e3-d50ceac5278e")
 	)
 	(wire
 		(pts
@@ -1757,7 +1751,7 @@
 			(uuid "b2e1f2aa-569a-4e7f-a7ea-dbac025fc36d")
 		)
 		(instances
-			(project ""
+			(project "arena_10_of_10_v1r1"
 				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/f8e525f6-92ff-481c-b9d6-983b91f2917d"
 					(reference "#PWR0284")
 					(unit 1)
@@ -1977,7 +1971,7 @@
 			(uuid "8eb7961b-8e0b-4527-aff9-0919c00a93cf")
 		)
 		(instances
-			(project ""
+			(project "arena_10_of_10_v1r1"
 				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/f8e525f6-92ff-481c-b9d6-983b91f2917d"
 					(reference "#PWR0248")
 					(unit 1)
@@ -2066,7 +2060,7 @@
 			(uuid "4f6d4600-1e21-4ce1-9929-a72c2c74fd55")
 		)
 		(instances
-			(project ""
+			(project "arena_10_of_10_v1r1"
 				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/f8e525f6-92ff-481c-b9d6-983b91f2917d"
 					(reference "J25")
 					(unit 1)
@@ -2198,7 +2192,7 @@
 			(uuid "7792e255-3589-4ccf-8c56-ed15b4515d59")
 		)
 		(instances
-			(project ""
+			(project "arena_10_of_10_v1r1"
 				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/f8e525f6-92ff-481c-b9d6-983b91f2917d"
 					(reference "#PWR0250")
 					(unit 1)
@@ -2263,7 +2257,7 @@
 			(uuid "96f92d4e-46af-478e-ad9f-aa150cfe24f2")
 		)
 		(instances
-			(project ""
+			(project "arena_10_of_10_v1r1"
 				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/f8e525f6-92ff-481c-b9d6-983b91f2917d"
 					(reference "#PWR0285")
 					(unit 1)
@@ -2395,7 +2389,7 @@
 			(uuid "9fd642a5-7712-4174-ba76-ccdead351cd0")
 		)
 		(instances
-			(project ""
+			(project "arena_10_of_10_v1r1"
 				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/f8e525f6-92ff-481c-b9d6-983b91f2917d"
 					(reference "#PWR0286")
 					(unit 1)
@@ -2472,7 +2466,7 @@
 			(uuid "0f9bf812-9cc2-4f4b-a83f-6eeed3bf0549")
 		)
 		(instances
-			(project ""
+			(project "arena_10_of_10_v1r1"
 				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/f8e525f6-92ff-481c-b9d6-983b91f2917d"
 					(reference "U82")
 					(unit 1)
@@ -2552,9 +2546,9 @@
 		(at 44.45 31.75 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom no)
+		(in_bom yes)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d9d178e0-0b1b-4192-9cf3-ad58343fc799")
 		(property "Reference" "SW1"
@@ -2600,6 +2594,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C19189125"
+			(at 44.45 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "ef9bef40-4ade-403c-a111-a1c36a467443")
 		)
@@ -2610,7 +2613,7 @@
 			(uuid "99c5108a-f51e-4a11-a1e7-a049b7677a7f")
 		)
 		(instances
-			(project ""
+			(project "arena_10_of_10_v1r1"
 				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/f8e525f6-92ff-481c-b9d6-983b91f2917d"
 					(reference "SW1")
 					(unit 1)

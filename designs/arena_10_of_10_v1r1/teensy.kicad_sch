@@ -4,6 +4,12 @@
 	(generator_version "9.0")
 	(uuid "f709f198-089c-413a-908a-ebe4c473804f")
 	(paper "USLetter")
+	(title_block
+		(title "G6 Teensy 10-10 Arena")
+		(date "2026-04-22")
+		(rev "v1.1.4")
+		(company "IORodeo for Reiser Lab @ Janelia | HHMI")
+	)
 	(lib_symbols
 		(symbol "+3.3V_1"
 			(power)
@@ -134,23 +140,25 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "J"
-				(at -13.208 22.352 0)
+			(property "Reference" "J1"
+				(at -13.208 21.844 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left)
 				)
 			)
 			(property "Value" "Cetus RJ45 Magjack"
-				(at -0.508 -24.13 0)
+				(at -9.652 -24.13 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left)
 				)
 			)
-			(property "Footprint" ""
+			(property "Footprint" "Connector_RJ:RJ45_Cetus_J1B1211CCD_Horizontal"
 				(at 0 0 0)
 				(effects
 					(font
@@ -169,6 +177,15 @@
 				)
 			)
 			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "LCSC Part #" "C910371"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1554,6 +1571,24 @@
 						)
 					)
 					(number "11"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -16.51 -21.59 0)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "13"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -4148,6 +4183,12 @@
 		(uuid "a36de527-c785-411f-9a69-ddc33b65a507")
 	)
 	(junction
+		(at 54.61 179.07)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a486b2c5-810c-4ccf-b553-6d015028de9b")
+	)
+	(junction
 		(at 144.78 135.89)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4620,7 +4661,7 @@
 	)
 	(wire
 		(pts
-			(xy 54.61 168.91) (xy 54.61 180.34)
+			(xy 54.61 168.91) (xy 54.61 179.07)
 		)
 		(stroke
 			(width 0)
@@ -5830,6 +5871,16 @@
 	)
 	(wire
 		(pts
+			(xy 54.61 179.07) (xy 54.61 180.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "94f99960-31d5-4db4-b80c-bb04b50082e4")
+	)
+	(wire
+		(pts
 			(xy 30.48 53.34) (xy 43.18 53.34)
 		)
 		(stroke
@@ -6227,6 +6278,16 @@
 			(type default)
 		)
 		(uuid "c8b63744-1dab-4694-9909-a4752dedc8c1")
+	)
+	(wire
+		(pts
+			(xy 54.61 179.07) (xy 69.85 179.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cba2e96b-5bac-413b-b2d9-b52b8c61728b")
 	)
 	(wire
 		(pts
@@ -7541,7 +7602,7 @@
 			(uuid "1f007e6c-a2b7-4f62-ac74-98a14e5b0726")
 		)
 		(instances
-			(project ""
+			(project "arena_10_of_10_v1r1"
 				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/49d7122d-250d-4ac4-9432-46d5d4ec4ae4"
 					(reference "#PWR013")
 					(unit 1)
@@ -7696,7 +7757,7 @@
 			(uuid "da4fda09-6a0b-4332-87aa-b4563c074ab9")
 		)
 		(instances
-			(project ""
+			(project "arena_10_of_10_v1r1"
 				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/49d7122d-250d-4ac4-9432-46d5d4ec4ae4"
 					(reference "J2")
 					(unit 1)
@@ -8990,8 +9051,11 @@
 		(pin "7"
 			(uuid "a454e28d-6554-4432-87fe-e6a0b9ed7b4a")
 		)
+		(pin "13"
+			(uuid "2588d374-a148-4f57-b2c3-730f343830c7")
+		)
 		(instances
-			(project ""
+			(project "arena_10_of_10_v1r1"
 				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/49d7122d-250d-4ac4-9432-46d5d4ec4ae4"
 					(reference "J1")
 					(unit 1)
@@ -9080,7 +9144,7 @@
 			(uuid "20d83e7f-e7b2-4f03-8318-8c05bd1ec02f")
 		)
 		(instances
-			(project ""
+			(project "arena_10_of_10_v1r1"
 				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/49d7122d-250d-4ac4-9432-46d5d4ec4ae4"
 					(reference "J3")
 					(unit 1)
@@ -10023,7 +10087,7 @@
 			(uuid "07eff325-9422-46a3-8078-ecc0b0ba1fcc")
 		)
 		(instances
-			(project ""
+			(project "arena_10_of_10_v1r1"
 				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/49d7122d-250d-4ac4-9432-46d5d4ec4ae4"
 					(reference "#PWR01")
 					(unit 1)
@@ -11463,7 +11527,7 @@
 			(uuid "c00cc57e-a5f0-4e62-8b95-a58747144f22")
 		)
 		(instances
-			(project ""
+			(project "arena_10_of_10_v1r1"
 				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/49d7122d-250d-4ac4-9432-46d5d4ec4ae4"
 					(reference "U1")
 					(unit 1)
@@ -11617,7 +11681,7 @@
 			(uuid "3c3586e2-1243-4911-813a-941452a56934")
 		)
 		(instances
-			(project ""
+			(project "arena_10_of_10_v1r1"
 				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/49d7122d-250d-4ac4-9432-46d5d4ec4ae4"
 					(reference "U2")
 					(unit 1)
@@ -12558,7 +12622,7 @@
 			(uuid "32826705-8e75-4920-87c9-1ff3f9ac6904")
 		)
 		(instances
-			(project ""
+			(project "arena_10_of_10_v1r1"
 				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/49d7122d-250d-4ac4-9432-46d5d4ec4ae4"
 					(reference "R1")
 					(unit 1)

@@ -4,6 +4,12 @@
 	(generator_version "9.0")
 	(uuid "57867733-2fc2-4f1d-852f-86426fa091aa")
 	(paper "User" 279.4 279.4)
+	(title_block
+		(title "G6 Teensy 10-10 Arena")
+		(date "2026-04-22")
+		(rev "v1.1.4")
+		(company "IORodeo for Reiser Lab @ Janelia | HHMI")
+	)
 	(lib_symbols
 		(symbol "+3.3V_1"
 			(power)
@@ -4478,7 +4484,7 @@
 			(uuid "43aa2e65-68db-4d5f-93d1-8d1326072742")
 		)
 		(instances
-			(project ""
+			(project "arena_10_of_10_v1r1"
 				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/d9742f93-cea2-4d1e-a4e2-1bef85a1b88a"
 					(reference "#PWR0311")
 					(unit 1)
@@ -4573,7 +4579,7 @@
 			(uuid "7c340c12-3e36-43a6-b5f2-c3e98bc3ebc3")
 		)
 		(instances
-			(project ""
+			(project "arena_10_of_10_v1r1"
 				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/d9742f93-cea2-4d1e-a4e2-1bef85a1b88a"
 					(reference "U83")
 					(unit 2)
@@ -5017,7 +5023,7 @@
 			(uuid "c477bd24-276c-41e5-bdb4-8773661f9f0f")
 		)
 		(instances
-			(project ""
+			(project "arena_10_of_10_v1r1"
 				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/d9742f93-cea2-4d1e-a4e2-1bef85a1b88a"
 					(reference "C93")
 					(unit 1)
@@ -6669,7 +6675,7 @@
 			(uuid "19bcb3d3-475a-45fd-bfc0-231249045838")
 		)
 		(instances
-			(project ""
+			(project "arena_10_of_10_v1r1"
 				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/d9742f93-cea2-4d1e-a4e2-1bef85a1b88a"
 					(reference "U86")
 					(unit 2)
@@ -6830,7 +6836,7 @@
 			(uuid "7c340c12-3e36-43a6-b5f2-c3e98bc3ebc4")
 		)
 		(instances
-			(project ""
+			(project "arena_10_of_10_v1r1"
 				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/d9742f93-cea2-4d1e-a4e2-1bef85a1b88a"
 					(reference "U86")
 					(unit 1)
@@ -7666,7 +7672,7 @@
 			(uuid "5ca9a1fb-1d31-4b8c-9050-20ab92101d92")
 		)
 		(instances
-			(project ""
+			(project "arena_10_of_10_v1r1"
 				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/d9742f93-cea2-4d1e-a4e2-1bef85a1b88a"
 					(reference "D3")
 					(unit 1)
@@ -8039,7 +8045,7 @@
 			(uuid "19bcb3d3-475a-45fd-bfc0-231249045839")
 		)
 		(instances
-			(project ""
+			(project "arena_10_of_10_v1r1"
 				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/d9742f93-cea2-4d1e-a4e2-1bef85a1b88a"
 					(reference "U87")
 					(unit 3)
@@ -8597,7 +8603,7 @@
 			(uuid "3516a6ae-5e47-46d1-80e9-fd5dce6a40cd")
 		)
 		(instances
-			(project ""
+			(project "arena_10_of_10_v1r1"
 				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/d9742f93-cea2-4d1e-a4e2-1bef85a1b88a"
 					(reference "#PWR0303")
 					(unit 1)
@@ -9109,7 +9115,7 @@
 			(uuid "19bcb3d3-475a-45fd-bfc0-23124904583a")
 		)
 		(instances
-			(project ""
+			(project "arena_10_of_10_v1r1"
 				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/d9742f93-cea2-4d1e-a4e2-1bef85a1b88a"
 					(reference "U87")
 					(unit 1)
@@ -9296,7 +9302,7 @@
 			(uuid "500e0e3e-1b33-4865-a1dc-6305a42ac762")
 		)
 		(instances
-			(project ""
+			(project "arena_10_of_10_v1r1"
 				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/d9742f93-cea2-4d1e-a4e2-1bef85a1b88a"
 					(reference "U85")
 					(unit 1)
@@ -9585,7 +9591,7 @@
 			(uuid "3865eed5-30d7-40c4-bc35-7c19a54f04b8")
 		)
 		(instances
-			(project ""
+			(project "arena_10_of_10_v1r1"
 				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/d9742f93-cea2-4d1e-a4e2-1bef85a1b88a"
 					(reference "R182")
 					(unit 1)
@@ -10047,7 +10053,7 @@
 			(uuid "7c340c12-3e36-43a6-b5f2-c3e98bc3ebc5")
 		)
 		(instances
-			(project ""
+			(project "arena_10_of_10_v1r1"
 				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/d9742f93-cea2-4d1e-a4e2-1bef85a1b88a"
 					(reference "U86")
 					(unit 3)
@@ -10271,7 +10277,7 @@
 			(uuid "c0f6671f-7dc7-4645-8cc3-4284901ff7bd")
 		)
 		(instances
-			(project ""
+			(project "arena_10_of_10_v1r1"
 				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/d9742f93-cea2-4d1e-a4e2-1bef85a1b88a"
 					(reference "#PWR0289")
 					(unit 1)
