@@ -55,38 +55,18 @@
 		)
 	)
 	(fp_line
-		(start -22.75 0)
-		(end -22.75 -3.5)
+		(start -22.5 0)
+		(end -22.5 1.9)
 		(stroke
 			(width 0.25)
 			(type solid)
-		)
-		(layer "F.SilkS")
-		(uuid "20aedc38-611f-4afd-a7e6-e0c428fb9bbe")
-	)
-	(fp_line
-		(start -22.75 0)
-		(end -22.75 1.9)
-		(stroke
-			(width 0.25)
-			(type default)
 		)
 		(layer "F.SilkS")
 		(uuid "5aebf28b-15c2-4c9d-9a45-533b255863ae")
 	)
 	(fp_line
-		(start 22.75 0)
-		(end 22.75 -3.5)
-		(stroke
-			(width 0.25)
-			(type solid)
-		)
-		(layer "F.SilkS")
-		(uuid "8007a6f1-8ea2-4f5b-ab71-850bc8b93af3")
-	)
-	(fp_line
-		(start 22.75 0)
-		(end 22.75 1.9)
+		(start 22.5 0)
+		(end 22.5 1.9)
 		(stroke
 			(width 0.25)
 			(type solid)
@@ -95,8 +75,8 @@
 		(uuid "17e30150-e8d3-488e-9f9d-43fd00035e22")
 	)
 	(fp_line
-		(start 22.75 1.9)
-		(end -22.75 1.9)
+		(start 22.5 1.9)
+		(end -22.5 1.9)
 		(stroke
 			(width 0.25)
 			(type solid)
@@ -105,14 +85,24 @@
 		(uuid "106aa1fb-6676-4fa6-ba88-0c9cd0ca634d")
 	)
 	(fp_line
-		(start -22.75 -3.5)
-		(end 22.75 -3.5)
+		(start -22.5 -3.5)
+		(end 22.5 -3.5)
 		(stroke
 			(width 0.25)
 			(type solid)
 		)
 		(layer "Dwgs.User")
 		(uuid "4c9a1842-d901-4aee-9626-36e9110f92ad")
+	)
+	(fp_line
+		(start -22.5 0)
+		(end -22.5 -3.5)
+		(stroke
+			(width 0.25)
+			(type solid)
+		)
+		(layer "Dwgs.User")
+		(uuid "20aedc38-611f-4afd-a7e6-e0c428fb9bbe")
 	)
 	(fp_line
 		(start -21.8 0)
@@ -334,6 +324,16 @@
 		(layer "Dwgs.User")
 		(uuid "907a6708-8691-4d7c-b50c-700ed97eee7d")
 	)
+	(fp_line
+		(start 22.5 0)
+		(end 22.5 -3.5)
+		(stroke
+			(width 0.25)
+			(type solid)
+		)
+		(layer "Dwgs.User")
+		(uuid "8007a6f1-8ea2-4f5b-ab71-850bc8b93af3")
+	)
 	(fp_circle
 		(center -20.48 0)
 		(end -19.98 0)
@@ -445,7 +445,7 @@
 		(uuid "6bcc1502-cf5a-4ba8-9bc7-d7750af6eda3")
 	)
 	(fp_text user "CS0"
-		(at 10.94 -1.53 90)
+		(at 11.8 -2.6 180)
 		(unlocked yes)
 		(layer "F.SilkS")
 		(uuid "0b6571fd-bfd6-4a97-ab56-e91ec08c151f")
@@ -458,7 +458,7 @@
 		)
 	)
 	(fp_text user "CS3"
-		(at 18.56 -1.52 90)
+		(at 19.6 -3.8 180)
 		(unlocked yes)
 		(layer "F.SilkS")
 		(uuid "2609d2fc-67ba-43d5-bbe9-7e64821e1a0d")
@@ -471,7 +471,7 @@
 		)
 	)
 	(fp_text user "EINT"
-		(at 21.11 -1.52 90)
+		(at 22 -2.6 180)
 		(unlocked yes)
 		(layer "F.SilkS")
 		(uuid "75c206e1-2e6c-413b-bc43-b39af18c967c")
@@ -484,7 +484,7 @@
 		)
 	)
 	(fp_text user "CS1"
-		(at 13.47 -1.52 90)
+		(at 14.2 -3.8 180)
 		(unlocked yes)
 		(layer "F.SilkS")
 		(uuid "84e7fb25-e05d-4240-96ae-0d45d22c5995")
@@ -497,7 +497,7 @@
 		)
 	)
 	(fp_text user "CS2"
-		(at 16.02 -1.53 90)
+		(at 16.8 -2.6 180)
 		(unlocked yes)
 		(layer "F.SilkS")
 		(uuid "8b238dbb-f8ca-42ca-bbee-e90ccf866e5e")
@@ -510,7 +510,7 @@
 		)
 	)
 	(fp_text user "MISO"
-		(at -9.67 -1.53 90)
+		(at -8.6 -2.6 180)
 		(unlocked yes)
 		(layer "F.SilkS")
 		(uuid "b56fc028-5dde-42c5-af2f-70e6973cd05f")
@@ -523,7 +523,7 @@
 		)
 	)
 	(fp_text user "MOSI"
-		(at -12.24 -1.52 90)
+		(at -10.8 -3.8 180)
 		(unlocked yes)
 		(layer "F.SilkS")
 		(uuid "c405757f-13ad-4531-8be1-026f103f9126")
@@ -536,7 +536,7 @@
 		)
 	)
 	(fp_text user "GND"
-		(at -17.33 -1.5 90)
+		(at -16.6 -3.8 180)
 		(unlocked yes)
 		(layer "F.SilkS")
 		(uuid "c52ecc99-13c6-473a-a108-477b08ec8437")
@@ -549,7 +549,7 @@
 		)
 	)
 	(fp_text user "SCK"
-		(at -14.81 -1.51 90)
+		(at -13.8 -2.6 180)
 		(unlocked yes)
 		(layer "F.SilkS")
 		(uuid "fcae2cb5-aeab-407f-b0b0-e644f0ea30c8")
@@ -562,7 +562,7 @@
 		)
 	)
 	(fp_text user "5V"
-		(at -19.91 -1.54 90)
+		(at -19.6 -2.6 180)
 		(unlocked yes)
 		(layer "F.SilkS")
 		(uuid "fdf4b217-3797-4be8-8053-c322d24d696e")
