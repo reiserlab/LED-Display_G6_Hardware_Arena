@@ -6,8 +6,8 @@
 	(paper "USLetter")
 	(title_block
 		(title "G6 Teensy 10-10 Arena")
-		(date "2026-04-27")
-		(rev "v1.1.6")
+		(date "2026-04-28")
+		(rev "v1.1.7")
 		(company "IORodeo for Reiser Lab @ Janelia | HHMI")
 	)
 	(lib_symbols

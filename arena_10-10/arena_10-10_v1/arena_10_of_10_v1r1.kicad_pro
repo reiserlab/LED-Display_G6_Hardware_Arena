@@ -3,6 +3,8 @@
     "3dviewports": [],
     "design_settings": {
       "defaults": {
+        "apply_defaults_to_fp_barcodes": false,
+        "apply_defaults_to_fp_dimensions": false,
         "apply_defaults_to_fp_fields": false,
         "apply_defaults_to_fp_shapes": false,
         "apply_defaults_to_fp_text": false,
@@ -58,20 +60,7 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [
-        [
-          "courtyards_overlap|298420000|260230000|1bd02912-631f-4d81-89bf-0cd9a2331c52|8a18f31e-ce0e-4967-92d8-45be941a4f76",
-          ""
-        ],
-        [
-          "extra_footprint|251450000|246775000|b3c4ed6e-112b-4df6-9279-7412065c73c6|00000000-0000-0000-0000-000000000000",
-          "Modified to allow Teensy footprint"
-        ],
-        [
-          "extra_footprint|251475000|261975000|1bd02912-631f-4d81-89bf-0cd9a2331c52|00000000-0000-0000-0000-000000000000",
-          "Modified to allow Teensy footprint"
-        ]
-      ],
+      "drc_exclusions": [],
       "meta": {
         "version": 2
       },
@@ -90,6 +79,7 @@
         "extra_footprint": "warning",
         "footprint": "error",
         "footprint_filters_mismatch": "ignore",
+        "footprint_symbol_field_mismatch": "warning",
         "footprint_symbol_mismatch": "warning",
         "footprint_type_mismatch": "ignore",
         "hole_clearance": "error",
@@ -107,6 +97,7 @@
         "mirrored_text_on_front_layer": "warning",
         "missing_courtyard": "ignore",
         "missing_footprint": "warning",
+        "missing_tuning_profile": "warning",
         "net_conflict": "warning",
         "nonmirrored_text_on_back_layer": "warning",
         "npth_inside_courtyard": "ignore",
@@ -126,9 +117,12 @@
         "too_many_vias": "error",
         "track_angle": "error",
         "track_dangling": "warning",
+        "track_not_centered_on_via": "ignore",
+        "track_on_post_machined_layer": "error",
         "track_segment_length": "error",
         "track_width": "error",
         "tracks_crossing": "error",
+        "tuning_profile_track_geometries": "ignore",
         "unconnected_items": "error",
         "unresolved_variable": "error",
         "via_dangling": "warning",
@@ -255,17 +249,28 @@
       "zones_allow_external_fillets": false
     },
     "ipc2581": {
+      "bom_rev": "",
       "dist": "",
       "distpn": "",
       "internal_id": "",
       "mfg": "",
-      "mpn": ""
+      "mpn": "",
+      "sch_revision": ""
     },
     "layer_pairs": [],
     "layer_presets": [],
     "viewports": []
   },
   "boards": [],
+  "component_class_settings": {
+    "assignments": [],
+    "meta": {
+      "version": 0
+    },
+    "sheet_component_classes": {
+      "enabled": false
+    }
+  },
   "cvpcb": {
     "equivalence_files": []
   },
@@ -514,6 +519,7 @@
         "priority": 2147483647,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.2,
+        "tuning_profile": "",
         "via_diameter": 0.35,
         "via_drill": 0.2,
         "wire_width": 6
@@ -529,12 +535,13 @@
         "priority": 0,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.2,
+        "tuning_profile": "",
         "via_diameter": 0.35,
         "via_drill": 0.2
       }
     ],
     "meta": {
-      "version": 4
+      "version": 5
     },
     "net_colors": null,
     "netclass_assignments": null,
@@ -670,6 +677,7 @@
       "sort_asc": false,
       "sort_field": "${QUANTITY}"
     },
+    "bus_aliases": {},
     "connection_grid_size": 50.0,
     "drawing": {
       "dashed_lines_dash_length_ratio": 12.0,
@@ -708,7 +716,14 @@
     "spice_save_all_dissipations": false,
     "spice_save_all_voltages": false,
     "subpart_first_id": 65,
-    "subpart_id_separator": 0
+    "subpart_id_separator": 0,
+    "top_level_sheets": [
+      {
+        "filename": "arena_10_of_10_v1r1.kicad_sch",
+        "name": "arena_10_of_10_v1r1",
+        "uuid": "00000000-0000-0000-0000-000000000000"
+      }
+    ]
   },
   "sheets": [
     [
@@ -964,5 +979,11 @@
       "MISO B1 Enable for P10"
     ]
   ],
-  "text_variables": {}
+  "text_variables": {},
+  "tuning_profiles": {
+    "meta": {
+      "version": 0
+    },
+    "tuning_profiles_impedance_geometric": []
+  }
 }
