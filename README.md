@@ -6,7 +6,7 @@ This repository is part of <https://reiserlab.github.io/Modular-LED-Display/>. I
 
 The arena PCB serves as the backplane for a Generation 6 Modular LED Display. It supports up to 10 LED panel boards arranged in a circle to form a cylindrical structure. The board is driven by a Teensy 4.1 MCU and receives updates via Ethernet.
 
-The first large production run was version 1.1.6, ordered on 2026-04-27.
+The first large production run was version 1.1.7, ordered on 2026-04-28.
 
 ## Development and License
 
