@@ -6,8 +6,8 @@
 	(paper "User" 279.4 304.8)
 	(title_block
 		(title "G6 10-10 Arena Top")
-		(date "2026-05-26")
-		(rev "v1.1.0")
+		(date "2026-06-10")
+		(rev "v1.1.8")
 		(company "IORodeo for Reiser Lab @ Janelia | HHMI")
 	)
 	(lib_symbols)

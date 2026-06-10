@@ -6,8 +6,8 @@
 	(paper "A4")
 	(title_block
 		(title "G6 10-10 Arena Top")
-		(date "2026-05-26")
-		(rev "v1.1.0")
+		(date "2026-06-10")
+		(rev "v1.1.8")
 		(company "IORodeo for Reiser Lab @ Janelia | HHMI")
 	)
 	(lib_symbols
@@ -950,7 +950,7 @@
 				)
 			)
 		)
-		(property "LCSC Part #" "C50950"
+		(property "LCSC Part #" "C492404"
 			(at 161.29 69.85 0)
 			(hide yes)
 			(show_name no)
@@ -1368,7 +1368,7 @@
 				)
 			)
 		)
-		(property "LCSC Part #" "C50950"
+		(property "LCSC Part #" "C492404"
 			(at 161.29 85.09 0)
 			(hide yes)
 			(show_name no)
