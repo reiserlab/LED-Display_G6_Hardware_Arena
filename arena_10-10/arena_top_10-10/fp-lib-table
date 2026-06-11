@@ -1,0 +1,5 @@
+(fp_lib_table
+	(version 7)
+	(lib (name "panel_silk") (type "KiCad") (uri "${KIPRJMOD}/panel_silk.pretty") (options "") (descr "") (disabled))
+	(lib (name "arena_custom") (type "KiCad") (uri "${KIPRJMOD}/arena_custom.pretty") (options "") (descr "") (disabled))
+)

@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "panel_silk")(type "KiCad")(uri "${KIPRJMOD}/panel_silk.kicad_sym")(options "")(descr ""))
+)
