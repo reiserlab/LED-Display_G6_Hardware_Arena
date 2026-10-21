@@ -1,11 +1,19 @@
 #!/usr/bin/env python3
-"""Continue the arena panel-header ring placement.
+"""Place the arena panel-header ring (14-position ring, 10 panels populated).
 
-The 12 panel-header footprints P1..P12 (panel_silk:Panel_Silk) sit on a circle
-centered on the board's grid origin (the arena center). P1 and P2 are already
-placed correctly; this script reads them, derives the ring (center, radius,
-angular pitch and rotation pitch), and writes P3..P12 continuing the same ring:
-same neighbour distance and same per-panel rotation.
+The panel-header footprints (panel_silk:Panel_Silk) sit on a circle centered on
+the board's grid origin (the arena center). The ring has 14 slots, 360/14 deg
+(25.714... deg) apart; P1..P10 fill 10 of them and P11/P12 are not touched.
+
+P2 is the anchor. It sits at X=-101.38, Y=0 in the SECONDARY (grid-origin)
+coordinate system, with Y pointing up as KiCad displays it. That is NOT the
+page coordinate system: the script reads (grid_origin) from the PCB and
+converts display -> page with
+    page_x = origin_x + X,   page_y = origin_y - Y.
+P2 keeps the rotation it already has in the file. The radius is |X| = 101.38 mm.
+
+  - P1 is one slot counterclockwise from P2 (rotation + pitch).
+  - P3..P10 continue clockwise from P2, one slot each (rotation - pitch each).
 
 How placement works in the .kicad_pcb:
   - A footprint's "(at x y angle)" sets its position and orientation.
@@ -32,8 +40,10 @@ import sys
 PCB = os.path.normpath(
     os.path.join(os.path.dirname(os.path.abspath(__file__)),
                  "..", "..", "arena_10-14.kicad_pcb"))
-FIRST_FIXED = ("P1", "P2")          # anchors: read, never modified
-PANELS = [f"P{i}" for i in range(1, 13)]
+PANELS = [f"P{i}" for i in range(1, 11)]   # P1..P10 are placed; P11/P12 untouched
+N_SLOTS = 14                         # ring positions
+PITCH = 360.0 / N_SLOTS              # 25.714285714285715 deg between neighbours
+P2_X, P2_Y = -101.38, 0.0            # P2 in the grid-origin frame (Y up), mm
 
 AT_RE = re.compile(r"\(at (-?[\d.]+) (-?[\d.]+)(?: (-?[\d.]+))?\)")
 
@@ -121,38 +131,29 @@ def main() -> None:
         sys.exit(f"Missing panel footprints: {missing}")
 
     cx, cy = get_grid_origin(txt)
-    p1 = read_at(txt[slice(*spans["P1"])])
-    p2 = read_at(txt[slice(*spans["P2"])])
+    R = math.hypot(P2_X, P2_Y)
+    th2 = math.atan2(P2_Y, P2_X)                 # P2 angle on the ring, display frame
+    rot2 = read_at(txt[slice(*spans["P2"])])[2]  # P2 keeps its current rotation
+    pitch = math.radians(PITCH)
 
-    a1 = math.atan2(p1[1] - cy, p1[0] - cx)
-    a2 = math.atan2(p2[1] - cy, p2[0] - cx)
-    r1 = math.hypot(p1[0] - cx, p1[1] - cy)
-    r2 = math.hypot(p2[0] - cx, p2[1] - cy)
-    R = (r1 + r2) / 2.0
-    dpos = math.atan2(math.sin(a2 - a1), math.cos(a2 - a1))   # angular pitch (rad)
-    drot = p2[2] - p1[2]                                       # rotation pitch (deg)
+    print(f"grid origin (page) = ({fmt(cx)}, {fmt(cy)})  [secondary frame origin]")
+    print(f"P2 anchor (display) = ({P2_X}, {P2_Y})  -> page ({fmt(cx + P2_X)}, {fmt(cy - P2_Y)})")
+    print(f"radius {R:.3f} mm   pitch {PITCH:.6f} deg   P2 rotation {fmt(rot2)}\n")
 
-    print(f"center (grid origin) = ({fmt(cx)}, {fmt(cy)})")
-    print(f"radius  P1={r1:.3f}  P2={r2:.3f}  -> use {R:.3f} mm  (chord={2*R*math.sin(abs(dpos)/2):.3f} mm)")
-    print(f"angular pitch = {math.degrees(dpos):+.3f} deg/panel   rotation pitch = {drot:+.3f} deg/panel")
-    print(f"P1 = ({fmt(p1[0])}, {fmt(p1[1])}, {fmt(p1[2])})  [fixed]")
-    print(f"P2 = ({fmt(p2[0])}, {fmt(p2[1])}, {fmt(p2[2])})  [fixed]\n")
-
-    for n in range(3, 13):
-        ang = a1 + (n - 1) * dpos
-        x = cx + R * math.cos(ang)
-        y = cy + R * math.sin(ang)
-        rot = norm_angle(p1[2] + (n - 1) * drot)
+    for n in range(1, 11):
+        k = 1 if n == 1 else -(n - 2)    # slots from P2: P1 = +1 (CCW), P3.. = -1.. (CW)
+        ang = th2 + k * pitch
+        dispx, dispy = R * math.cos(ang), R * math.sin(ang)   # display frame, Y up
+        x, y = cx + dispx, cy - dispy                         # -> page frame
+        rot = norm_angle(rot2 + k * PITCH)
         ref = f"P{n}"
         s, e = spans[ref]
         old = read_at(txt[s:e])
-        dispx, dispy = x - cx, cy - y     # KiCad display frame (relative to origin, Y up)
         print(f"{ref:>3}: ({fmt(x)}, {fmt(y)}, {fmt(rot)})"
               f"   [display {dispx:+.2f}, {dispy:+.2f}]"
               f"   was ({fmt(old[0])}, {fmt(old[1])}, {fmt(old[2])})")
         new_block = rewrite_block(txt[s:e], x, y, rot)
         txt = txt[:s] + new_block + txt[e:]
-        # spans after this block shift if length changed; recompute lazily
         spans = find_footprint_blocks(txt)
 
     if args.apply:

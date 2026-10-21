@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """Replicate the P2 panel-column component block to every other panel column.
 
-Each panel column P1..P12 has a panel-header connector (P1..P12, the panel_silk
-footprint that 01_place_panels.py positions on the ring) plus all its associated
-parts. Those parts come from two hierarchical sub-schematics:
+This arena populates 10 panel columns, P1..P10. Each has a panel-header
+connector (P1..P10, the panel_silk footprint that 01_place_panels.py positions
+on the ring) plus all its associated parts. Those parts come from two
+hierarchical sub-schematics:
   - the panel-column sub-schematic (connectors J*, buffers U*, resistors R*,
-    capacitors C*), instanced once per column, and
+    capacitors C*, the panel power fuse F*), instanced once per column, and
   - the CIPO-enable sub-schematic ("CIPO B0/B1 Enable for Pn"), also one per
     column, associated with the connector by the "for Pn" in its sheet name.
 
@@ -19,6 +20,11 @@ Matching across columns is by the footprint's hierarchical leaf UUID (the last
 segment of its (path ...)), which is shared across all instances of a shared
 sub-schematic. This is future-proof: any part added to the P2 column is picked
 up automatically as long as the same instance exists in the target columns.
+The fuse is matched the same way, so each column's fuse lands at F2's offset
+from P2 no matter how the F references are numbered.
+
+Columns beyond P10 (the schematic may still carry P11/P12) are ignored: their
+parts are not moved, and their CIPO-enable sheets are skipped.
 
 KiCad placement notes (same handling as 01_):
   - A footprint's "(at x y angle)" sets position and orientation.
@@ -47,7 +53,8 @@ PCB = os.path.normpath(
                  "..", "..", "arena_10-14.kicad_pcb"))
 
 TEMPLATE_COL = "P2"                       # column whose block is copied
-CONNECTORS = [f"P{i}" for i in range(1, 13)]
+N_PANELS = 10                             # populated columns P1..P10
+CONNECTORS = [f"P{i}" for i in range(1, N_PANELS + 1)]
 
 AT_RE = re.compile(r"\(at (-?[\d.]+) (-?[\d.]+)(?: (-?[\d.]+))?\)")
 # CIPO-enable sub-sheets ("CIPO B0/B1 Enable for Pn") also belong to a column.
@@ -59,10 +66,10 @@ ENABLE_SHEET_RE = re.compile(r"Enable for (P\d+)")
 # shared; the series output resistors are per-column. The P1/P2 pair is the
 # template -- list its shared parts here; every other pair's equivalents are found
 # by connectivity. Shared parts replicate per PAIR, anchored on the even connector
-# (P2,P4,...,P12  =>  40 deg steps), not per column (20 deg).
+# (P2,P4,...,P10  =>  two ring slots per step), not per column (one slot).
 SHARED_BUFFERS = ["U4", "U7", "U39"]     # SCK, COPI, EINT dual buffers (P1/P2 pair)
 SHARED_CAPS    = ["C6", "C9", "C41"]     # their decoupling caps (one per buffer)
-PAIR_ANCHORS   = [2, 4, 6, 8, 10, 12]    # even connector of each pair; P2 = template
+PAIR_ANCHORS   = list(range(2, N_PANELS + 1, 2))   # even connector of each pair; P2 = template
 # buffer leaf -> its decoupling-cap leaf (position within a fan-out sheet); used to
 # pick the right cap in each pair's buffer sheet-instance.
 BUF_CAP_LEAF = {"313127c6": "e4a4fe85", "3dec7679": "7434dac7", "c7ec63a9": "1df1b107"}
@@ -96,12 +103,19 @@ def kicad_rotate(x: float, y: float, deg: float) -> tuple[float, float]:
     return (x * c - y * s, x * s + y * c)
 
 
-def swap_col(net: str, k: int) -> str:
-    """Retarget a P2 column-tagged net to column k: fix the SCK/COPI bank (B0 for
-    P1-P6, B1 for P7-P12) and swap the _P2 suffix. Bankless nets (EINT, etc.) just
-    get the suffix swapped."""
-    net = re.sub(r"_B[01]_", "_B0_" if k <= 6 else "_B1_", net)
-    return re.sub(r"_P2$", f"_P{k}", net)
+def swap_col(net: str, k: int, nets: set[str]) -> str:
+    """Retarget a P2 column-tagged net to column k: swap the _P2 suffix and pick
+    whichever SCK/COPI bank (B0/B1) column k's net actually has on the board, so
+    the bank split between columns isn't hardcoded. Bankless nets (EINT, etc.)
+    just get the suffix swapped."""
+    net = re.sub(r"_P2$", f"_P{k}", net)
+    if not re.search(r"_B[01]_", net):
+        return net
+    for bank in ("_B0_", "_B1_"):
+        cand = re.sub(r"_B[01]_", bank, net)
+        if cand in nets:
+            return cand
+    return net
 
 
 def pad_nets(txt: str, fp: dict) -> dict[str, str]:
@@ -225,9 +239,9 @@ def template_shared(txt, fps, pn):
     return out
 
 
-def place_shared_buffers(txt, fps, pn, edits):
+def place_shared_buffers(txt, fps, pn, nets, edits):
     """Place each pair's shared dual-buffers + caps at P2's offset, anchored on the
-    even connector, replicated per PAIR (P2,P4,...,P12 => 40 deg steps).
+    even connector, replicated per PAIR (P2,P4,...,P10 => two ring slots per step).
 
     Only the buffers (U4/U7/U39-equivalent) and their caps (C6/C9/C41) are shared;
     each pair's buffer is found by connectivity to that pair's even series resistor
@@ -248,7 +262,7 @@ def place_shared_buffers(txt, fps, pn, edits):
         for buf, cap, pan in template:
             if not pan:
                 continue
-            tgt = swap_col(pan, e)
+            tgt = swap_col(pan, e, nets)
             rk = next((r for r in fps if r[0] == "R" and tgt in pn[r].values()), None)
             if not rk:
                 continue
@@ -307,11 +321,14 @@ def main() -> None:
     #     fan-out schematic since footprints don't store sheet names
     seg2conn = {fps[c]["colinst"]: c for c in CONNECTORS}
     sch_path = os.path.join(os.path.dirname(os.path.abspath(args.pcb)), "fan_out.kicad_sch")
-    enables = enable_instances(sch_path)
+    all_enables = enable_instances(sch_path)
+    enables = {u: c for u, c in all_enables.items() if c in CONNECTORS}
     seg2conn.update(enables)
     if enables:
+        skipped = sorted(set(all_enables.values()) - set(CONNECTORS), key=lambda p: int(p[1:]))
         print(f"CIPO-enable blocks: {len(enables)} instances -> "
-              f"{sorted(set(enables.values()), key=lambda p: int(p[1:]))}")
+              f"{sorted(set(enables.values()), key=lambda p: int(p[1:]))}"
+              + (f"  (ignored, beyond P{N_PANELS}: {skipped})" if skipped else ""))
     else:
         print(f"WARNING: no CIPO-enable sheets found (looked in {sch_path}); "
               f"placing panel-column blocks only.")
@@ -334,13 +351,19 @@ def main() -> None:
         lx, ly = kicad_rotate(f["x"] - anchor["x"], f["y"] - anchor["y"], -anchor["a"])
         template[leaf] = (lx, ly, f["a"] - anchor["a"], ref)
     print(f"Template = column {TEMPLATE_COL} ({fps[TEMPLATE_COL].get('leaf','')[:8]} connector), "
-          f"{len(template)} parts relative to {TEMPLATE_COL}.\n")
+          f"{len(template)} parts relative to {TEMPLATE_COL}.")
+    fuse_leaves = {leaf for leaf, (*_, tref) in template.items() if tref.startswith("F")}
+    if fuse_leaves:
+        print(f"Template fuse(s): {sorted(template[l][3] for l in fuse_leaves)}\n")
+    else:
+        print(f"WARNING: no fuse (F*) in the {TEMPLATE_COL} column block; fuses won't be placed.\n")
 
     # Per-column series output resistors (Fan-Out): each has one pad on a shared
     # buffer output (Net-(R..-Pad1)) and the other on a PAN.*_P2 panel net. They
     # are the last per-column hop before the shared buffer, so they replicate per
-    # column (20 deg) like the panel-column parts, mapped by their PAN net.
+    # column (one ring slot) like the panel-column parts, mapped by their PAN net.
     pn = {ref: pad_nets(txt, f) for ref, f in fps.items()}
+    nets = {n for d in pn.values() for n in d.values()}
     buf_out = {n for buf in SHARED_BUFFERS if buf in fps
                for n in pn[buf].values() if n.startswith("Net-(")}
     series = []   # (pan_net_P2, rel_x, rel_y, rel_a)
@@ -365,7 +388,7 @@ def main() -> None:
         k = int(col[1:])
         members = columns[col]
         placed = missing_here = 0
-        samples = []
+        samples, fuses = [], []
         for leaf, (lx, ly, da, tref) in template.items():
             ref = members.get(leaf)
             if not ref:
@@ -377,10 +400,13 @@ def main() -> None:
             s, e = fps[ref]["span"]
             edits.append((s, e, rewrite_block(txt[s:e], nx, ny, na)))
             placed += 1
-            if len(samples) < 2:
+            if leaf in fuse_leaves:
+                fuses.append(f"{ref}->({fmt(nx)},{fmt(ny)},{fmt(na)})")
+            elif len(samples) < 1:
                 samples.append(f"{ref}->({fmt(nx)},{fmt(ny)},{fmt(na)})")
         for pan, lx, ly, da in series:               # this column's series resistors
-            tref = next((r for r in fps if r[0] == "R" and swap_col(pan, k) in pn[r].values()), None)
+            tref = next((r for r in fps
+                         if r[0] == "R" and swap_col(pan, k, nets) in pn[r].values()), None)
             if tref:
                 gx, gy = kicad_rotate(lx, ly, cfp["a"])
                 s, e = fps[tref]["span"]
@@ -390,11 +416,13 @@ def main() -> None:
         extra = [members[l] for l in members if l not in template and l != conn_leaf]
         note = f"  UNMATCHED template parts: {missing_here}" if missing_here else ""
         note += f"  extra-not-in-template: {extra}" if extra else ""
+        note += "  NO FUSE" if fuse_leaves and not fuses else ""
         print(f"{col}: connector at ({fmt(cfp['x'])},{fmt(cfp['y'])},{fmt(cfp['a'])}), "
-              f"placed {placed} parts. e.g. {', '.join(samples)}{note}")
+              f"placed {placed} parts. fuse {', '.join(fuses) or '-'}; "
+              f"e.g. {', '.join(samples)}{note}")
 
     # shared dual-buffers + caps, anchored on the even connector of each pair
-    place_shared_buffers(txt, fps, pn, edits)
+    place_shared_buffers(txt, fps, pn, nets, edits)
 
     # apply edits back-to-front so spans stay valid
     for s, e, newtext in sorted(edits, key=lambda t: t[0], reverse=True):
