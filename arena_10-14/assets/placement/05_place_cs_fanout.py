@@ -2,21 +2,26 @@
 """Place + route the CS fan-out groups relative to their pair's midpoint connector.
 
 Each block of four CS signals fans one Teensy chip-select out to a panel PAIR
-(Pn, Pn+6) and is anchored on that pair's MIDPOINT connector P(n+3):
+(Pa, Pb) and is anchored on that pair's MIDPOINT connector P((a+b)/2). The pairs
+are read from the fan-out sheet names ("CS_05 fan out to P2, P8"); with the
+current schematic they are:
     CS_00..03 -> P1,P7 -> P4   (template, placed by hand)
     CS_04..07 -> P2,P8 -> P5
     CS_08..11 -> P3,P9 -> P6
     CS_12..15 -> P4,P10 -> P7
-    CS_16..19 -> P5,P11 -> P8
-    CS_20..23 -> P6,P12 -> P9
+    CS_16..19 -> P5,P11 -> P8   (P11 not populated in this 10-panel arena)
+    CS_20..23 -> P6,P12 -> P9   (P12 not populated)
+Every anchor must be a populated connector (P1..P10). If the schematic pairs the
+CS lines so that a midpoint is not one (e.g. Pn with Pn+5), the script stops
+rather than guessing an anchor.
 
 The CS_00..03 group (its current placement + routing) is the TEMPLATE, measured
-relative to P4. Each other pair-group is reproduced relative to its own midpoint
-connector with the same rigid rotate+translate 02_/03_ use (so the six groups fan
-around the ring following the connector angles). Then:
+relative to its anchor (P4). Each other pair-group is reproduced relative to its
+own midpoint connector with the same rigid rotate+translate 02_/03_ use (so the
+groups fan around the ring following the connector angles). Then:
   1. clear the old routing on the target groups (keeping the template's),
-  2. place each target CS_(4j+k) part at template CS_k's offset from P4, applied
-       relative to P(4+j),
+  2. place each target CS_(4j+k) part at template CS_k's offset from the
+       template anchor, applied relative to group j's anchor,
   3. route each target group by replicating the template group's tracks through
        the same transform, nets remapped by connectivity (like 03_).
 The Teensy CS series resistors are left untouched.
@@ -39,9 +44,10 @@ PCB = os.path.normpath(
     os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "arena_10-14.kicad_pcb"))
 
 GRID = 0.254
-TEMPLATE_SIGNALS = [0, 1, 2, 3]    # CS_00..03 = the P1/P7 group, the template
-TEMPLATE_ANCHOR = 4                # midpoint connector P4; pair j is anchored on P(4+j)
-NPAIRS = 6                         # 6 pairs (j = 0..5); j = 0 is the template
+TEMPLATE_SIGNALS = [0, 1, 2, 3]    # CS_00..03 = group 0 (the P1/P7 group), the template
+GROUP_SIZE = 4                     # CS signals per group: group j = CS_(4j)..CS_(4j+3)
+N_PANELS = 10                      # populated columns P1..P10
+CONNECTORS = [f"P{i}" for i in range(1, N_PANELS + 1)]
 CAP_MARGIN = 6.0                   # mm around a CS group when capturing / clearing routing
 POWER_NETS = {"GND", "+3.3V", "+5V", "+5VP", "+3V3", "GNDA"}
 
@@ -108,6 +114,7 @@ def parse(txt):
     sch = open(os.path.join(os.path.dirname(os.path.abspath(ARGS.pcb)),
                             "fan_out.kicad_sch"), encoding="utf-8").read()
     cs_by_uuid = {}
+    cs_pairs = {}                      # cs -> (a, b): the panel pair it fans out to
     for m in re.finditer(r"\(sheet\b", sch):
         blk = sch[m.start():m.start() + 1600]
         nm = re.search(r'\(property "Sheetname" "([^"]*)"', blk)
@@ -116,12 +123,19 @@ def parse(txt):
             mm = re.search(r"CS_(\d+) .*fan ?out", nm.group(1), re.I)
             if mm:
                 cs_by_uuid[uu.group(1)] = int(mm.group(1))
+                mp = re.search(r"to\s+P(\d+),\s*P(\d+)", nm.group(1))
+                if mp:
+                    cs_pairs[int(mm.group(1))] = (int(mp.group(1)), int(mp.group(2)))
 
     fps = {}
     for m in re.finditer(r"\n\t\(footprint ", txt):
         s = m.start() + 1
-        e = txt.find("\n\t(footprint ", m.end())
-        b = txt[s:(e if e != -1 else len(txt))]
+        # End at this footprint's own closing paren: ending at the next
+        # "(footprint" would make the LAST footprint's span run over every
+        # track/via after it, and rewrite_fp would then add angles to the vias.
+        e = txt.find("\n\t)", m.end())
+        e = e + len("\n\t)") if e != -1 else len(txt)
+        b = txt[s:e]
         ref = re.search(r'\(property "Reference" "([^"]+)"', b)
         if not ref:
             continue
@@ -133,7 +147,7 @@ def parse(txt):
         for pm in re.finditer(r'\(pad "([^"]+)"[^\n]*\n\s*\(at (-?[\d.]+) (-?[\d.]+)(?: (-?[\d.]+))?\).*?\(net "([^"]*)"\)', b, re.S):
             gx, gy = krot(float(pm.group(2)), float(pm.group(3)), fa)
             pads.append((pm.group(1), fx + gx, fy + gy, pm.group(5)))
-        fps[ref.group(1)] = dict(span=(s, e if e != -1 else len(txt)), x=fx, y=fy, a=fa,
+        fps[ref.group(1)] = dict(span=(s, e), x=fx, y=fy, a=fa,
                                  leaf=seg[-1] if seg else None,
                                  cs=next((cs_by_uuid[x] for x in seg if x in cs_by_uuid), None),
                                  pads=pads)
@@ -146,7 +160,7 @@ def parse(txt):
         net = re.search(r'\(net "([^"]*)"\)', blk)
         pts = [(float(a), float(b)) for _, a, b, _ in COORD_RE.findall(blk)]
         tracks.append(dict(s=s, e=e, text=blk, net=net.group(1) if net else None, pts=pts))
-    return fps, tracks
+    return fps, tracks, cs_pairs
 
 
 def dedup_tracks(txt):
@@ -184,7 +198,28 @@ def main():
     ARGS = ap.parse_args()
 
     txt = open(ARGS.pcb, encoding="utf-8").read()
-    fps, tracks = parse(txt)
+    fps, tracks, cs_pairs = parse(txt)
+
+    # ---- group -> anchor: the midpoint connector of the pair it fans out to --
+    pairs = defaultdict(set)                     # group j -> {(a, b)}
+    for cs, ab in cs_pairs.items():
+        pairs[cs // GROUP_SIZE].add(ab)
+    anchors = {}                                 # group j -> anchor connector number
+    for j, ab in sorted(pairs.items()):
+        if len(ab) != 1:
+            sys.exit(f"CS group {j}: its signals fan out to different pairs {sorted(ab)}")
+        a, b = next(iter(ab))
+        if (a + b) % 2 or f"P{(a + b) // 2}" not in CONNECTORS:
+            sys.exit(f"CS group {j} (CS_{GROUP_SIZE * j:02d}..) fans out to P{a}, P{b}: its "
+                     f"midpoint P{(a + b) / 2:g} is not a populated connector "
+                     f"(P1..P{N_PANELS}). Decide on an anchor for this pairing first.")
+        anchors[j] = (a + b) // 2
+        unpop = [f"P{p}" for p in (a, b) if f"P{p}" not in CONNECTORS]
+        print(f"CS group {j}: CS_{GROUP_SIZE * j:02d}..{GROUP_SIZE * j + GROUP_SIZE - 1:02d} "
+              f"-> P{a},P{b} -> anchor P{anchors[j]}"
+              + (f"  ({', '.join(unpop)} not populated)" if unpop else ""))
+    if 0 not in anchors:
+        sys.exit("No CS_00..03 template group found in fan_out.kicad_sch")
 
     # ---- per-CS-group membership + pad nets -------------------------------
     csgrp = defaultdict(dict)        # cs -> {leaf: ref}
@@ -195,14 +230,14 @@ def main():
             for pn, x, y, net in f["pads"]:
                 colpads[f["cs"]][(f["leaf"], pn)] = net
 
-    # ---- template: CS_00..03 group measured relative to connector P4 -------
-    p4 = fps[f"P{TEMPLATE_ANCHOR}"]
-    template = {}                    # (cs_k, leaf) -> (rel_x, rel_y, rel_a)  in P4's frame
+    # ---- template: CS_00..03 group measured relative to its anchor (P4) ---
+    tconn = fps[f"P{anchors[0]}"]
+    template = {}                    # (cs_k, leaf) -> (rel_x, rel_y, rel_a)  in the anchor's frame
     for k in TEMPLATE_SIGNALS:
         for leaf, ref in csgrp.get(k, {}).items():
             f = fps[ref]
-            lx, ly = krot(f["x"] - p4["x"], f["y"] - p4["y"], -p4["a"])
-            template[(k, leaf)] = (lx, ly, f["a"] - p4["a"])
+            lx, ly = krot(f["x"] - tconn["x"], f["y"] - tconn["y"], -tconn["a"])
+            template[(k, leaf)] = (lx, ly, f["a"] - tconn["a"])
 
     # net -> (template cs, leaf, pad); lets any template-group net be remapped to
     # the same pad's net in the target sub-signal (power nets are kept as-is).
@@ -218,7 +253,7 @@ def main():
         if not src:
             return None
         k, leaf, pad = src
-        return colpads.get(4 * j + k, {}).get((leaf, pad))
+        return colpads.get(GROUP_SIZE * j + k, {}).get((leaf, pad))
 
     # routing template = the CS_00..03 group's own tracks. A track belongs to it if
     # it carries one of the group's signal nets (unique per CS, taken net-wide) or
@@ -237,7 +272,7 @@ def main():
         return net in net_src and net.startswith("Net-(")
     tmpl_tracks = [t for t in tracks if t["pts"] and (
         local_net(t["net"]) or (t["net"] in POWER_NETS and touches(t["pts"])))]
-    print(f"template CS_00..03 @ P{TEMPLATE_ANCHOR}: {len(template)} parts, "
+    print(f"template CS_00..03 @ P{anchors[0]}: {len(template)} parts, "
           f"routing template = {len(tmpl_tracks)} tracks "
           f"on {sorted(set(t['net'] for t in tmpl_tracks) - POWER_NETS)}")
 
@@ -247,8 +282,9 @@ def main():
     # ---- 1) clear old routing on the target groups (keep the template's) ---
     # only their INTERNAL wiring (Net-(R..-Pad1)) -- the same nets we re-route --
     # so a neighbour's copper and the long PAN.CS_*/TNY.CS_* signals are left alone.
-    target_nets = {net for j in range(1, NPAIRS) for k in range(4)
-                   for net in colpads.get(4 * j + k, {}).values()
+    targets = [(j, a) for j, a in sorted(anchors.items()) if j != 0]
+    target_nets = {net for j, _ in targets for k in range(GROUP_SIZE)
+                   for net in colpads.get(GROUP_SIZE * j + k, {}).values()
                    if net and net.startswith("Net-(")}
     deleted = 0
     for t in tracks:
@@ -259,17 +295,17 @@ def main():
     # ---- 2) place + 3) route each target pair relative to its midpoint conn -
     def make_tp(conn):
         def tp(x, y):
-            lx, ly = krot(x - p4["x"], y - p4["y"], -p4["a"])
+            lx, ly = krot(x - tconn["x"], y - tconn["y"], -tconn["a"])
             gx, gy = krot(lx, ly, conn["a"])
             return conn["x"] + gx, conn["y"] + gy
         return tp
 
     placed = routed = skipped = 0
-    for j in range(1, NPAIRS):
-        conn = fps[f"P{TEMPLATE_ANCHOR + j}"]
+    for j, a in targets:
+        conn = fps[f"P{a}"]
         tp = make_tp(conn)
         for (k, leaf), (lx, ly, da) in template.items():
-            ref = csgrp.get(4 * j + k, {}).get(leaf)
+            ref = csgrp.get(GROUP_SIZE * j + k, {}).get(leaf)
             if not ref:
                 continue
             gx, gy = krot(lx, ly, conn["a"])
@@ -292,7 +328,8 @@ def main():
             routed += 1
 
     print(f"CS groups: deleted {deleted} old tracks, placed {placed} footprints in "
-          f"{NPAIRS - 1} pairs (P5..P{TEMPLATE_ANCHOR + NPAIRS - 1}), routed {routed} tracks "
+          f"{len(targets)} pairs (anchors {', '.join(f'P{a}' for _, a in targets)}), "
+          f"routed {routed} tracks "
           f"({skipped} skipped).")
 
     for s, e, newtext in sorted(edits, key=lambda t: t[0], reverse=True):

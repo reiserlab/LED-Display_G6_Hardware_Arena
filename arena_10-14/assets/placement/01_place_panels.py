@@ -64,9 +64,10 @@ def find_footprint_blocks(txt: str) -> dict[str, tuple[int, int]]:
     spans: dict[str, tuple[int, int]] = {}
     for m in re.finditer(r'\n\t\(footprint ', txt):
         start = m.start() + 1
-        end = txt.find('\n\t(footprint ', m.end())
-        if end == -1:
-            end = len(txt)
+        # End at this footprint's own closing paren, so the last footprint's span
+        # doesn't run over the tracks/vias/board text that follow it.
+        end = txt.find('\n\t)', m.end())
+        end = end + len('\n\t)') if end != -1 else len(txt)
         block = txt[start:end]
         mref = re.search(r'\(property "Reference" "(P\d+)"', block)
         if mref:

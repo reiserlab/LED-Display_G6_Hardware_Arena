@@ -132,9 +132,12 @@ def find_footprints(txt: str) -> dict[str, dict]:
     out: dict[str, dict] = {}
     for m in re.finditer(r'\n\t\(footprint ', txt):
         start = m.start() + 1
-        end = txt.find('\n\t(footprint ', m.end())
-        if end == -1:
-            end = len(txt)
+        # End at this footprint's own closing paren (the next one-tab "\t)").
+        # Ending at the next "(footprint" instead would make the LAST footprint's
+        # span run over every track/via/zone after it, and rewrite_block would
+        # then add an angle to every via (which KiCad rejects).
+        end = txt.find('\n\t)', m.end())
+        end = end + len('\n\t)') if end != -1 else len(txt)
         block = txt[start:end]
         mref = re.search(r'\(property "Reference" "([^"]+)"', block)
         if not mref:

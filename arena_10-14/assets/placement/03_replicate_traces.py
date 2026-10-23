@@ -2,7 +2,7 @@
 """Replicate the tracks (segments + vias) routed around P2 to every other column.
 
 P2's column block is routed; the other columns are not. This copies every track
-in P2's block region to P1 and P3..P12, rigidly transformed relative to each
+in P2's block region to P1 and P3..P10, rigidly transformed relative to each
 column's connector (the same transform 02_place_column_blocks.py uses), and
 re-assigns each copied track to the TARGET column's corresponding net.
 
@@ -19,8 +19,11 @@ Net handling (tracks reference nets by NAME in this board):
     for that column and reported (so it can never silently create a short).
 
 Only the geometry, net name, and uuid of each copied track change; width, layer,
-via size/drill, etc. are preserved verbatim. Tracks are ADDED (targets are
-unrouted); nothing is deleted.
+via size/drill, etc. are preserved verbatim.
+
+Columns beyond P10 (the schematic may still carry P11/P12) are not replicated
+to. Note that the reset step below removes every track that isn't P2's own
+routing, so their copper (like any other non-P2 copper) is deleted.
 
 Default is a DRY RUN. Pass --apply to write (a .bak copy is made first).
 """
@@ -40,17 +43,18 @@ PCB = os.path.normpath(
                  "..", "..", "arena_10-14.kicad_pcb"))
 
 TEMPLATE = "P2"
-CONNECTORS = [f"P{i}" for i in range(1, 13)]
+N_PANELS = 10                             # populated columns P1..P10
+CONNECTORS = [f"P{i}" for i in range(1, N_PANELS + 1)]
 ENABLE_SHEETFILE = "cipo_enable.kicad_sch"
 ENABLE_SHEET_RE = re.compile(r"Enable for (P\d+)")
 
 # Shared dual fan-out buffers (SCK/COPI/EINT), one per panel pair. Only the buffer
 # + its cap + their direct legs are shared, and replicated per PAIR (even connector,
-# 40 deg). Everything else connected to a column is per-column (20 deg). Template =
-# the P1/P2 pair. See 02_place_column_blocks.py for the full model.
+# two ring slots). Everything else connected to a column is per-column (one slot).
+# Template = the P1/P2 pair. See 02_place_column_blocks.py for the full model.
 SHARED_BUFFERS = ["U4", "U7", "U39"]
 SHARED_CAPS    = ["C6", "C9", "C41"]
-PAIR_ANCHORS   = [2, 4, 6, 8, 10, 12]     # even connector per pair; P2 = template
+PAIR_ANCHORS   = list(range(2, N_PANELS + 1, 2))   # even connector per pair; P2 = template
 POWER_NETS = {"GND", "+3.3V", "+5V", "+5VP", "+3V3", "GNDA"}
 
 AT_RE = re.compile(r"\(at (-?[\d.]+) (-?[\d.]+)(?: (-?[\d.]+))?\)")
@@ -62,12 +66,38 @@ def fmt(v: float) -> str:
     return s if s not in ("", "-0") else "0"
 
 
-def to_col(net: str, k: int) -> str:
-    """Retarget a column-tagged net to column k: fix the SCK/COPI bank (B0 for
-    P1-P6, B1 for P7-P12) and the _P<n> suffix. Bankless nets (EINT) just get the
-    suffix swapped."""
-    net = re.sub(r"_B[01]_", "_B0_" if k <= 6 else "_B1_", net)
-    return re.sub(r"_P\d+$", f"_P{k}", net)
+def to_col(net: str, k: int, nets: set) -> str:
+    """Retarget a column-tagged net to column k: swap the _P<n> suffix and pick
+    whichever SCK/COPI bank (B0/B1) column k's net actually has on the board, so
+    the bank split between columns isn't hardcoded. Bankless nets (EINT) just get
+    the suffix swapped."""
+    net = re.sub(r"_P\d+$", f"_P{k}", net)
+    if not re.search(r"_B[01]_", net):
+        return net
+    for bank in ("_B0_", "_B1_"):
+        cand = re.sub(r"_B[01]_", bank, net)
+        if cand in nets:
+            return cand
+    return net
+
+
+def bank_of(k: int, nets: set) -> str | None:
+    """The SCK/COPI bank ("B0"/"B1") column k is on, read from its PAN.SCK net."""
+    for n in nets:
+        m = re.search(rf"PAN\.SCK_(B[01])_P{k}$", n)
+        if m:
+            return m.group(1)
+    return None
+
+
+def footprint_spans(txt: str):
+    """Yield (start, end) of each top-level footprint. The end is the footprint's
+    own closing paren, so the last footprint doesn't swallow the tracks, vias and
+    board items that follow it in the file."""
+    for m in re.finditer(r"\n\t\(footprint ", txt):
+        s = m.start() + 1
+        e = txt.find("\n\t)", m.end())
+        yield s, (e + len("\n\t)") if e != -1 else len(txt))
 
 
 def kicad_rotate(x: float, y: float, deg: float) -> tuple[float, float]:
@@ -79,11 +109,7 @@ def kicad_rotate(x: float, y: float, deg: float) -> tuple[float, float]:
 
 def find_footprints(txt: str) -> dict:
     out = {}
-    for m in re.finditer(r"\n\t\(footprint ", txt):
-        start = m.start() + 1
-        end = txt.find("\n\t(footprint ", m.end())
-        if end == -1:
-            end = len(txt)
+    for start, end in footprint_spans(txt):
         b = txt[start:end]
         mref = re.search(r'\(property "Reference" "([^"]+)"', b)
         if not mref:
@@ -113,7 +139,7 @@ def enable_instances(sch_path: str) -> dict:
         uu = re.search(r'\(uuid "([^"]+)"\)', blk)
         if name and sfile and uu and sfile.group(1) == ENABLE_SHEETFILE:
             mm = ENABLE_SHEET_RE.search(name.group(1))
-            if mm:
+            if mm and mm.group(1) in CONNECTORS:     # skip sheets beyond P10
                 out[uu.group(1)] = mm.group(1)
     return out
 
@@ -158,10 +184,8 @@ def strip_to_template(txt, fps, sch_path):
 
     # absolute pad centers of every P2-template footprint = the flood seeds
     seeds_pts = []
-    for m in re.finditer(r"\n\t\(footprint ", txt):
-        s = m.start() + 1
-        e = txt.find("\n\t(footprint ", m.end())
-        b = txt[s:(e if e != -1 else len(txt))]
+    for s, e in footprint_spans(txt):
+        b = txt[s:e]
         mref = re.search(r'\(property "Reference" "([^"]+)"', b)
         if not mref or (colof(mref.group(1)) != TEMPLATE and mref.group(1) not in shared_refs):
             continue
@@ -287,10 +311,8 @@ def warn_incomplete_template(txt, fps, tracks):
         if t["net"]:
             ends[t["net"]].extend(t["pts"])
     padpts = defaultdict(list)
-    for m in re.finditer(r"\n\t\(footprint ", txt):
-        s = m.start() + 1
-        e = txt.find("\n\t(footprint ", m.end())
-        b = txt[s:(e if e != -1 else len(txt))]
+    for s, e in footprint_spans(txt):
+        b = txt[s:e]
         mref = re.search(r'\(property "Reference" "([^"]+)"', b)
         at = AT_RE.search(b)
         if not (mref and at):
@@ -334,7 +356,7 @@ def warn_incomplete_template(txt, fps, tracks):
 
 def shared_block_replicate(txt, fps, tracks, sch_path):
     """Replicate the shared dual-buffer routing to every other pair (anchored on
-    the even connector -- 40 deg steps).
+    the even connector, two ring slots per step).
 
     The shared block is only the buffers (U4/U7/U39), their caps (C6/C9/C41), and
     their DIRECT legs: the two output legs (Net-(R..-Pad1) to each column's series
@@ -349,16 +371,15 @@ def shared_block_replicate(txt, fps, tracks, sch_path):
     bufs = [r for r in SHARED_BUFFERS if r in fps]
     if not bufs:
         return [], set()
+    nets = {n for f in fps.values() for n in f["pads"].values()}
 
     def resistor_by_pan(pan):
         return next((r for r in fps if r[0] == "R" and pan in fps[r]["pads"].values()), None)
 
     def pad_centers(ref):
         f = fps[ref]
-        for m in re.finditer(r"\n\t\(footprint ", txt):
-            s = m.start() + 1
-            e = txt.find("\n\t(footprint ", m.end())
-            b = txt[s:(e if e != -1 else len(txt))]
+        for s, e in footprint_spans(txt):
+            b = txt[s:e]
             if re.search(rf'\(property "Reference" "{ref}"', b):
                 return [(f["x"] + gx, f["y"] + gy) for gx, gy in
                         (kicad_rotate(float(a), float(c), f["a"])
@@ -410,13 +431,18 @@ def shared_block_replicate(txt, fps, tracks, sch_path):
                 continue
             panel = int(re.search(r"_P(\d+)$", pan).group(1))
             tgt_panel = e if panel % 2 == 0 else e - 1     # even->Pe, odd partner->P(e-1)
-            rk = resistor_by_pan(to_col(pan, tgt_panel))
+            rk = resistor_by_pan(to_col(pan, tgt_panel, nets))
             if rk:
                 newleg = next((v for v in fps[rk]["pads"].values() if v.startswith("Net-(")), None)
                 if newleg:
                     m[leg] = newleg
+        bank = bank_of(e, nets)
         for t in tny:                                      # Teensy bus: bank-adjust only
-            m[t] = re.sub(r"_B[01]$", "_B0" if e <= 6 else "_B1", t)
+            if not re.search(r"_B[01]$", t):
+                m[t] = t                                   # bankless bus (EINT)
+            elif bank:
+                m[t] = re.sub(r"_B[01]$", f"_{bank}", t)
+            # bank unknown -> leave unmapped, so these tracks are skipped + counted
         return m
 
     additions, skipped = [], 0
