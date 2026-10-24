@@ -1,23 +1,25 @@
 #!/usr/bin/env python3
-"""Place + route the CS fan-out groups relative to their pair's midpoint connector.
+"""Place + route the CS fan-out groups relative to their pair's lower connector.
 
 Each block of four CS signals fans one Teensy chip-select out to a panel PAIR
-(Pa, Pb) and is anchored on that pair's MIDPOINT connector P((a+b)/2). The pairs
-are read from the fan-out sheet names ("CS_05 fan out to P2, P8"); with the
-current schematic they are:
-    CS_00..03 -> P1,P7 -> P4   (template, placed by hand)
-    CS_04..07 -> P2,P8 -> P5
-    CS_08..11 -> P3,P9 -> P6
-    CS_12..15 -> P4,P10 -> P7
-    CS_16..19 -> P5,P11 -> P8   (P11 not populated in this 10-panel arena)
-    CS_20..23 -> P6,P12 -> P9   (P12 not populated)
-Every anchor must be a populated connector (P1..P10). If the schematic pairs the
-CS lines so that a midpoint is not one (e.g. Pn with Pn+5), the script stops
-rather than guessing an anchor.
+(Pa, Pb) and is anchored on that pair's LOWER connector Pa. The pairs are read
+from the fan-out sheet names ("CS_05 fan out to P2, P7"); with the current
+schematic they are:
+    CS_00..03 -> P1,P6 -> P1   (template, placed by hand)
+    CS_04..07 -> P2,P7 -> P2
+    CS_08..11 -> P3,P8 -> P3
+    CS_12..15 -> P4,P9 -> P4
+    CS_16..19 -> P5,P10 -> P5
+The connectors are evenly spaced on the ring, so moving the anchor by one panel
+rotates a group by one panel pitch (360/14 deg) about the arena center, exactly as
+anchoring on the pair's midpoint would (the midpoint of Pn and Pn+5 falls between
+two connectors). That only holds if every pair has the same span b - a, so the
+script stops if the spans differ or an anchor is not a populated connector
+(P1..P10), rather than guessing.
 
 The CS_00..03 group (its current placement + routing) is the TEMPLATE, measured
-relative to its anchor (P4). Each other pair-group is reproduced relative to its
-own midpoint connector with the same rigid rotate+translate 02_/03_ use (so the
+relative to its anchor (P1). Each other pair-group is reproduced relative to its
+own anchor connector with the same rigid rotate+translate 02_/03_ use (so the
 groups fan around the ring following the connector angles). Then:
   1. clear the old routing on the target groups (keeping the template's),
   2. place each target CS_(4j+k) part at template CS_k's offset from the
@@ -44,7 +46,7 @@ PCB = os.path.normpath(
     os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "arena_10-14.kicad_pcb"))
 
 GRID = 0.254
-TEMPLATE_SIGNALS = [0, 1, 2, 3]    # CS_00..03 = group 0 (the P1/P7 group), the template
+TEMPLATE_SIGNALS = [0, 1, 2, 3]    # CS_00..03 = group 0 (the P1/P6 group), the template
 GROUP_SIZE = 4                     # CS signals per group: group j = CS_(4j)..CS_(4j+3)
 N_PANELS = 10                      # populated columns P1..P10
 CONNECTORS = [f"P{i}" for i in range(1, N_PANELS + 1)]
@@ -200,26 +202,31 @@ def main():
     txt = open(ARGS.pcb, encoding="utf-8").read()
     fps, tracks, cs_pairs = parse(txt)
 
-    # ---- group -> anchor: the midpoint connector of the pair it fans out to --
+    # ---- group -> anchor: the lower connector of the pair it fans out to -----
     pairs = defaultdict(set)                     # group j -> {(a, b)}
     for cs, ab in cs_pairs.items():
         pairs[cs // GROUP_SIZE].add(ab)
     anchors = {}                                 # group j -> anchor connector number
+    spans = {}                                   # group j -> b - a
     for j, ab in sorted(pairs.items()):
         if len(ab) != 1:
             sys.exit(f"CS group {j}: its signals fan out to different pairs {sorted(ab)}")
-        a, b = next(iter(ab))
-        if (a + b) % 2 or f"P{(a + b) // 2}" not in CONNECTORS:
+        a, b = sorted(next(iter(ab)))
+        if f"P{a}" not in CONNECTORS:
             sys.exit(f"CS group {j} (CS_{GROUP_SIZE * j:02d}..) fans out to P{a}, P{b}: its "
-                     f"midpoint P{(a + b) / 2:g} is not a populated connector "
-                     f"(P1..P{N_PANELS}). Decide on an anchor for this pairing first.")
-        anchors[j] = (a + b) // 2
+                     f"anchor P{a} is not a populated connector (P1..P{N_PANELS}). "
+                     f"Decide on an anchor for this pairing first.")
+        anchors[j], spans[j] = a, b - a
         unpop = [f"P{p}" for p in (a, b) if f"P{p}" not in CONNECTORS]
         print(f"CS group {j}: CS_{GROUP_SIZE * j:02d}..{GROUP_SIZE * j + GROUP_SIZE - 1:02d} "
               f"-> P{a},P{b} -> anchor P{anchors[j]}"
               + (f"  ({', '.join(unpop)} not populated)" if unpop else ""))
     if 0 not in anchors:
         sys.exit("No CS_00..03 template group found in fan_out.kicad_sch")
+    if len(set(spans.values())) != 1:
+        sys.exit(f"CS groups pair panels with different spans {sorted(set(spans.values()))}, "
+                 f"so one rigid rotation per panel slot can't reproduce the template. "
+                 f"Decide on anchors for this pairing first.")
 
     # ---- per-CS-group membership + pad nets -------------------------------
     csgrp = defaultdict(dict)        # cs -> {leaf: ref}
@@ -230,7 +237,7 @@ def main():
             for pn, x, y, net in f["pads"]:
                 colpads[f["cs"]][(f["leaf"], pn)] = net
 
-    # ---- template: CS_00..03 group measured relative to its anchor (P4) ---
+    # ---- template: CS_00..03 group measured relative to its anchor (P1) ---
     tconn = fps[f"P{anchors[0]}"]
     template = {}                    # (cs_k, leaf) -> (rel_x, rel_y, rel_a)  in the anchor's frame
     for k in TEMPLATE_SIGNALS:
@@ -292,7 +299,7 @@ def main():
             edits.append((t["s"] - 1, t["e"], ""))
             deleted += 1
 
-    # ---- 2) place + 3) route each target pair relative to its midpoint conn -
+    # ---- 2) place + 3) route each target pair relative to its anchor conn ---
     def make_tp(conn):
         def tp(x, y):
             lx, ly = krot(x - tconn["x"], y - tconn["y"], -tconn["a"])

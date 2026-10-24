@@ -61,17 +61,20 @@ AT_RE = re.compile(r"\(at (-?[\d.]+) (-?[\d.]+)(?: (-?[\d.]+))?\)")
 ENABLE_SHEETFILE = "cipo_enable.kicad_sch"
 ENABLE_SHEET_RE = re.compile(r"Enable for (P\d+)")
 
-# Shared dual fan-out buffers: each drives a panel PAIR (odd n-1 and even n) with
-# one Teensy signal (SCK/COPI/EINT). Only the buffer and its decoupling cap are
-# shared; the series output resistors are per-column. The P1/P2 pair is the
-# template -- list its shared parts here; every other pair's equivalents are found
-# by connectivity. Shared parts replicate per PAIR, anchored on the even connector
-# (P2,P4,...,P10  =>  two ring slots per step), not per column (one slot).
+# Shared dual fan-out buffers: each drives two adjacent panels with one Teensy
+# signal (SCK/COPI/EINT). The 5x fan-out sheets pair them per bank as
+# (P1,P2) (P3,P4) (P5,OUT_6) and (P6,P7) (P8,P9) (P10,OUT_6); OUT_6 is the spare
+# sixth output. Only the buffer and its decoupling cap are shared; the panel series
+# resistors are per-column. The P1/P2 buffers are the template (listed here).
+# Every other buffer is found by connectivity (the panels its outputs feed) and
+# moved by whole ring slots so that the panel its pad drives takes the place of
+# the template's panel on that pad. The connectors are evenly spaced, so that is
+# one rigid ring rotation per slot. See place_shared_buffers for the single-panel
+# (P5, P10) buffers and the spare-output resistors.
 SHARED_BUFFERS = ["U4", "U7", "U39"]     # SCK, COPI, EINT dual buffers (P1/P2 pair)
 SHARED_CAPS    = ["C6", "C9", "C41"]     # their decoupling caps (one per buffer)
-PAIR_ANCHORS   = list(range(2, N_PANELS + 1, 2))   # even connector of each pair; P2 = template
 # buffer leaf -> its decoupling-cap leaf (position within a fan-out sheet); used to
-# pick the right cap in each pair's buffer sheet-instance.
+# pick the right cap in each buffer's sheet-instance.
 BUF_CAP_LEAF = {"313127c6": "e4a4fe85", "3dec7679": "7434dac7", "c7ec63a9": "1df1b107"}
 # element keywords that own an (at ...); only text angles are absolute
 TEXT_OWNERS = ("fp_text", "property", "gr_text")
@@ -221,85 +224,144 @@ def rewrite_block(block: str, nx: float, ny: float, nrot: float) -> str:
     return "".join(out)
 
 
-def template_shared(txt, fps, pn):
-    """[(buffer, cap, P2-side series-resistor PAN net)] for the template pair.
+def to_local(conn: dict, x: float, y: float, a: float) -> tuple[float, float, float]:
+    """World placement -> (offset x, offset y, angle delta) in a connector's frame."""
+    lx, ly = kicad_rotate(x - conn["x"], y - conn["y"], -conn["a"])
+    return lx, ly, a - conn["a"]
 
-    For each shared buffer, find the P2-side series resistor (a resistor on one of
-    the buffer's Net-(...) outputs whose other pad is a PAN.*_P2 net); its PAN net
-    is what swap_col() retargets to locate the same buffer for each other pair.
+
+def to_world(conn: dict, lx: float, ly: float, da: float) -> tuple[float, float, float]:
+    """Offset in a connector's frame -> world placement (inverse of to_local)."""
+    gx, gy = kicad_rotate(lx, ly, conn["a"])
+    return conn["x"] + gx, conn["y"] + gy, norm_angle(conn["a"] + da)
+
+
+def panel_of(net: str | None) -> int | None:
+    """Panel number of a PAN.*_Pn net (None for any other net, e.g. OUT_6)."""
+    m = re.search(r"PAN\.\S*_P(\d+)$", net or "")
+    return int(m.group(1)) if m else None
+
+
+def buffer_legs(buf: str, pn: dict) -> dict[str, tuple[str | None, str | None]]:
+    """{output pad: (series resistor, PAN net it feeds)} for a fan-out buffer.
+
+    Each Net-(...) output runs to one series resistor whose other pad is the
+    panel's PAN net; the spare output (OUT_6) has a resistor but no PAN net.
     """
-    out = []
-    for buf, cap in zip(SHARED_BUFFERS, SHARED_CAPS):
-        outs = {n for n in pn[buf].values() if n.startswith("Net-(")}
-        pan = None
-        for r, d in pn.items():
-            if r[0] == "R" and outs & set(d.values()):
-                p2 = [n for n in d.values() if n.endswith("_P2")]
-                if p2:
-                    pan = p2[0]
-                    break
-        out.append((buf, cap, pan))
+    out = {}
+    for pad, net in pn[buf].items():
+        if not net.startswith("Net-("):
+            continue
+        r = next((r for r, d in pn.items() if r[0] == "R" and net in d.values()), None)
+        pan = next((n for n in pn[r].values() if panel_of(n)), None) if r else None
+        out[pad] = (r, pan)
     return out
 
 
-def place_shared_buffers(txt, fps, pn, nets, edits):
-    """Place each pair's shared dual-buffers + caps at P2's offset, anchored on the
-    even connector, replicated per PAIR (P2,P4,...,P10 => two ring slots per step).
+def buffer_groups(pn: dict, nets: set[str]) -> dict[str, dict[str, list[int]]]:
+    """{template buffer: {buffer: [panels it drives]}} over that buffer's signal.
 
-    Only the buffers (U4/U7/U39-equivalent) and their caps (C6/C9/C41) are shared;
-    each pair's buffer is found by connectivity to that pair's even series resistor
-    (via swap_col), and its cap is the C sharing the buffer's fan-out sheet
-    instance (colinst) with the paired cap leaf.
+    Each panel's series resistor for the signal (the template's P2-side PAN net,
+    retargeted with swap_col) has its other pad on a buffer output, so that buffer
+    drives the panel. This finds every buffer of the signal, whatever the pairing.
     """
-    template = template_shared(txt, fps, pn)
-    p2 = fps[TEMPLATE_COL]
-    offs = {}                                       # ref -> (lx, ly, da)
-    for ref in SHARED_BUFFERS + SHARED_CAPS:
-        f = fps[ref]
-        lx, ly = kicad_rotate(f["x"] - p2["x"], f["y"] - p2["y"], -p2["a"])
-        offs[ref] = (lx, ly, f["a"] - p2["a"])
+    groups = {}
+    for tbuf in SHARED_BUFFERS:
+        pan2 = next(p for _, p in buffer_legs(tbuf, pn).values() if panel_of(p) == 2)
+        drives: dict[str, list[int]] = {}
+        for k in range(1, N_PANELS + 1):
+            tgt = swap_col(pan2, k, nets)
+            r = next((r for r, d in pn.items() if r[0] == "R" and tgt in d.values()
+                      and any(n.startswith("Net-(") for n in d.values())), None)
+            leg = next((n for n in pn[r].values() if n.startswith("Net-(")), None) if r else None
+            buf = next((u for u, d in pn.items() if u[0] == "U" and leg in d.values()), None)
+            if buf:
+                drives.setdefault(buf, []).append(k)
+        groups[tbuf] = drives
+    return groups
 
-    def anchor_refs(e):
-        """{template_ref: this-pair's ref} for even anchor Pe, by connectivity."""
-        out = {}
-        for buf, cap, pan in template:
-            if not pan:
-                continue
-            tgt = swap_col(pan, e, nets)
-            rk = next((r for r in fps if r[0] == "R" and tgt in pn[r].values()), None)
-            if not rk:
-                continue
-            outn = next((n for n in pn[rk].values() if n.startswith("Net-(")), None)
-            bufk = next((u for u in fps if u[0] == "U" and outn in pn[u].values()), None)
-            if not bufk:
-                continue
-            out[buf] = bufk
-            cp = BUF_CAP_LEAF.get((fps[bufk]["leaf"] or "")[:8], "\0")
-            capk = next((c for c in fps if c[0] == "C"
-                         and fps[c]["colinst"] == fps[bufk]["colinst"]
-                         and (fps[c]["leaf"] or "").startswith(cp)), None)
-            if capk:
-                out[cap] = capk
-        return out
 
-    print("Shared buffers/caps (per pair, anchored on even connector):")
-    for e in PAIR_ANCHORS:
-        if e == int(TEMPLATE_COL[1:]):
-            continue
-        conn = fps[f"P{e}"]
-        corr = anchor_refs(e)
-        placed = []
-        for ref in SHARED_BUFFERS + SHARED_CAPS:
-            tref = corr.get(ref)
-            if not tref:
+def board_bbox(txt: str) -> tuple[float, float, float, float] | None:
+    """(xmin, ymin, xmax, ymax) over the Edge.Cuts graphics, None if there are none."""
+    pts = []
+    for m in re.finditer(r"\n\t\(gr_\w+", txt):
+        b = txt[m.start():txt.find("\n\t)", m.end())]
+        if '(layer "Edge.Cuts")' in b:
+            pts += [(float(x), float(y)) for x, y in
+                    re.findall(r"\((?:start|end|mid|center|xy) (-?[\d.]+) (-?[\d.]+)\)", b)]
+    if not pts:
+        return None
+    xs, ys = zip(*pts)
+    return min(xs), min(ys), max(xs), max(ys)
+
+
+def place_shared_buffers(txt, fps, pn, nets, edits):
+    """Place every non-template fan-out buffer and its cap at the template's offset.
+
+    A buffer moves by whole ring slots: the panel its output pad p drives takes
+    the role of the panel the template's pad p drives (P1 or P2), and both outputs
+    must agree (same pin order as the template). So a pair buffer (Pa, Pa+1) sits
+    between Pa and Pa+1 the way U4 sits between P1 and P2, and a single-panel
+    buffer (P5, P10: the other output is the spare OUT_6) sits where a pair
+    buffer starting at that panel would. A buffer whose spot falls outside the
+    board (Edge.Cuts bounding box; P10's, below the empty P11 slot) is left where
+    it is. The spare-output resistors are never moved: their template spot is
+    either another panel's series resistor (P5's points at P6) or off the board,
+    so they are placed by hand. The cap is the C sharing the buffer's fan-out
+    sheet instance (colinst) with the paired cap leaf.
+    """
+    bbox = board_bbox(txt)
+
+    def on_board(x, y):
+        return bbox is None or (bbox[0] <= x <= bbox[2] and bbox[1] <= y <= bbox[3])
+
+    def cap_of(buf):
+        cp = BUF_CAP_LEAF.get((fps[buf]["leaf"] or "")[:8], "\0")
+        return next((c for c in fps if c[0] == "C"
+                     and fps[c]["colinst"] == fps[buf]["colinst"]
+                     and (fps[c]["leaf"] or "").startswith(cp)), None)
+
+    def move(ref, x, y, a):
+        s, e = fps[ref]["span"]
+        edits.append((s, e, rewrite_block(txt[s:e], x, y, a)))
+
+    groups = buffer_groups(pn, nets)
+    placed: dict[int, list[str]] = {}               # target panel -> "tref->ref" notes
+    spares = []
+    print("Shared buffers/caps (moved by whole ring slots, template U4/U7/U39):")
+    for tbuf, tcap in zip(SHARED_BUFFERS, SHARED_CAPS):
+        tlegs = buffer_legs(tbuf, pn)
+        for buf in groups[tbuf]:
+            if buf == tbuf:
                 continue
-            lx, ly, da = offs[ref]
-            gx, gy = kicad_rotate(lx, ly, conn["a"])
-            s, en = fps[tref]["span"]
-            edits.append((s, en, rewrite_block(txt[s:en], conn["x"] + gx, conn["y"] + gy,
-                                               norm_angle(conn["a"] + da))))
-            placed.append(f"{ref}->{tref}")
-        print(f"  pair P{e-1}/P{e}: {', '.join(placed)}")
+            legs = buffer_legs(buf, pn)
+            spares += [r for r, pan in legs.values() if r and not pan]
+            # (template panel, this buffer's panel) per used output pad
+            roles = sorted((panel_of(tlegs[pad][1]), panel_of(pan))
+                           for pad, (_, pan) in legs.items() if pan and pad in tlegs)
+            if not roles or len({k - t for t, k in roles}) != 1:
+                print(f"  WARNING: {buf} outputs are not in {tbuf}'s pin order "
+                      f"(template panel -> panel: {roles}); left where it is.")
+                continue
+            t, k = roles[0]
+            src, dst = fps[f"P{t}"], fps[f"P{k}"]
+            moves = [(tref, ref) for tref, ref in ((tbuf, buf), (tcap, cap_of(buf))) if ref]
+            spots = {ref: to_world(dst, *to_local(src, fps[tref]["x"], fps[tref]["y"],
+                                                  fps[tref]["a"]))
+                     for tref, ref in moves}
+            if not all(on_board(x, y) for x, y, _ in spots.values()):
+                print(f"  WARNING: {buf} (P{k}) would land off the board (outside the "
+                      f"Edge.Cuts bounding box); left where it is, with its cap.")
+                continue
+            for tref, ref in moves:
+                move(ref, *spots[ref])
+            placed.setdefault(k, []).extend(f"{tref}->{ref}" for tref, ref in moves)
+
+    for k in sorted(placed):
+        print(f"  P{k}: {', '.join(placed[k])}")
+    if spares:
+        print(f"  Spare-output (OUT_6) resistors, not moved (place by hand): "
+              f"{', '.join(sorted(spares, key=lambda r: int(r[1:])))}")
 
 
 def main() -> None:
@@ -424,8 +486,12 @@ def main() -> None:
               f"placed {placed} parts. fuse {', '.join(fuses) or '-'}; "
               f"e.g. {', '.join(samples)}{note}")
 
-    # shared dual-buffers + caps, anchored on the even connector of each pair
+    # shared dual-buffers + caps, moved by whole ring slots from the template
     place_shared_buffers(txt, fps, pn, nets, edits)
+
+    starts = [s for s, _, _ in edits]
+    if len(starts) != len(set(starts)):
+        sys.exit("A footprint would be moved twice (overlapping edits); nothing written.")
 
     # apply edits back-to-front so spans stay valid
     for s, e, newtext in sorted(edits, key=lambda t: t[0], reverse=True):

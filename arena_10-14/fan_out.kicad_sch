@@ -235,6 +235,14 @@
 		(color 0 0 0 0)
 		(uuid "d694f3e8-9ad6-450b-b0ac-9a00373fbe8d")
 	)
+	(no_connect
+		(at 116.84 143.51)
+		(uuid "6b206ecd-cbd5-453d-a655-58cd1f42536b")
+	)
+	(no_connect
+		(at 116.84 168.91)
+		(uuid "e717f93b-6d4b-4f06-8072-7b74f5afa7a2")
+	)
 	(bus_entry
 		(at 381 25.4)
 		(size -2.54 -2.54)

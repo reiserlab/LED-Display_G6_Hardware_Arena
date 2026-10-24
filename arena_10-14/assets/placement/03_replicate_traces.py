@@ -11,7 +11,7 @@ Net handling (tracks reference nets by NAME in this board):
     munging: the P2-block pads on that net are mapped to the leaf-matched pads in
     the target column, and the net those pads carry is the target net. This
     handles the per-column differences automatically:
-        PAN.CS_04_P2  -> PAN.CS_00_P1 (P1) / PAN.CS_00_P7 (P7, bank B1) ...
+        PAN.CS_04_P2  -> PAN.CS_00_P1 (P1) / PAN.CS_04_P7 (P7) ...
         PAN.CIPO_B0_P2 -> PAN.CIPO_B1_P7 ...
         Net-(R120-Pad1) -> Net-(R112-Pad1) ...
     Shared nets (GND/+3.3V/+5V) map to themselves and are kept.
@@ -48,13 +48,14 @@ CONNECTORS = [f"P{i}" for i in range(1, N_PANELS + 1)]
 ENABLE_SHEETFILE = "cipo_enable.kicad_sch"
 ENABLE_SHEET_RE = re.compile(r"Enable for (P\d+)")
 
-# Shared dual fan-out buffers (SCK/COPI/EINT), one per panel pair. Only the buffer
-# + its cap + their direct legs are shared, and replicated per PAIR (even connector,
-# two ring slots). Everything else connected to a column is per-column (one slot).
-# Template = the P1/P2 pair. See 02_place_column_blocks.py for the full model.
+# Shared dual fan-out buffers (SCK/COPI/EINT), each driving two adjacent panels:
+# (P1,P2) (P3,P4) (P5,OUT_6) and (P6,P7) (P8,P9) (P10,OUT_6). Only the buffer + its
+# cap + their direct legs are shared, replicated once per buffer, moved by whole
+# ring slots like 02 moves the buffer. Everything else connected to a column is
+# per-column (one slot). Template = the P1/P2 buffers. See
+# 02_place_column_blocks.py for the full model.
 SHARED_BUFFERS = ["U4", "U7", "U39"]
 SHARED_CAPS    = ["C6", "C9", "C41"]
-PAIR_ANCHORS   = list(range(2, N_PANELS + 1, 2))   # even connector per pair; P2 = template
 POWER_NETS = {"GND", "+3.3V", "+5V", "+5VP", "+3V3", "GNDA"}
 
 AT_RE = re.compile(r"\(at (-?[\d.]+) (-?[\d.]+)(?: (-?[\d.]+))?\)")
@@ -79,15 +80,6 @@ def to_col(net: str, k: int, nets: set) -> str:
         if cand in nets:
             return cand
     return net
-
-
-def bank_of(k: int, nets: set) -> str | None:
-    """The SCK/COPI bank ("B0"/"B1") column k is on, read from its PAN.SCK net."""
-    for n in nets:
-        m = re.search(rf"PAN\.SCK_(B[01])_P{k}$", n)
-        if m:
-            return m.group(1)
-    return None
 
 
 def footprint_spans(txt: str):
@@ -355,17 +347,28 @@ def warn_incomplete_template(txt, fps, tracks):
 
 
 def shared_block_replicate(txt, fps, tracks, sch_path):
-    """Replicate the shared dual-buffer routing to every other pair (anchored on
-    the even connector, two ring slots per step).
+    """Replicate the shared dual-buffer routing to every other fan-out buffer.
 
     The shared block is only the buffers (U4/U7/U39), their caps (C6/C9/C41), and
     their DIRECT legs: the two output legs (Net-(R..-Pad1) to each column's series
     resistor), the Teensy input stub, and the buffer/cap power stubs. The per-pair
     output legs are unique nets, so they are taken net-wide (every segment); the
     global Teensy buses (TNY.*) and power are taken only where a segment touches a
-    buffer/cap pad, so we never grab the whole bus or a panel power fill. Nets are
-    remapped to the target pair by connectivity (via to_col + each pair's series
-    resistor). Returns (new track blocks, shared track indices).
+    buffer/cap pad, so we never grab the whole bus or a panel power fill.
+
+    Each shared track belongs to one template buffer (its output legs by net, the
+    rest by the buffer or cap pad it touches). Every other buffer of that signal is
+    found by connectivity (each panel's series resistor, via to_col, leads to the
+    buffer driving it) and gets a copy of its template buffer's tracks, moved by
+    the same whole ring slots 02_place_column_blocks.py moves the buffer (the
+    panel its pad drives takes the place of the template's panel on that pad).
+    Nets are remapped pad by pad, template buffer -> target buffer, so the panel
+    legs and the bank's Teensy bus follow the target's own pads. Nothing is copied
+    for a buffer that is not in the template's pin order or is not at its template
+    spot (02 left it for hand placement, e.g. P10's off-board SCK/COPI buffers, or
+    02 has not been run), and spare-output (OUT_6) legs are never copied, so a
+    copy can't end on a part that isn't there.
+    Returns (new track blocks, shared track indices).
     """
     refs = [r for r in SHARED_BUFFERS + SHARED_CAPS if r in fps]
     bufs = [r for r in SHARED_BUFFERS if r in fps]
@@ -374,7 +377,9 @@ def shared_block_replicate(txt, fps, tracks, sch_path):
     nets = {n for f in fps.values() for n in f["pads"].values()}
 
     def resistor_by_pan(pan):
-        return next((r for r in fps if r[0] == "R" and pan in fps[r]["pads"].values()), None)
+        """The series resistor on PAN net `pan` (its other pad is a buffer leg)."""
+        return next((r for r in fps if r[0] == "R" and pan in fps[r]["pads"].values()
+                     and any(v.startswith("Net-(") for v in fps[r]["pads"].values())), None)
 
     def pad_centers(ref):
         f = fps[ref]
@@ -386,22 +391,26 @@ def shared_block_replicate(txt, fps, tracks, sch_path):
                          for a, c in re.findall(r'\(pad "[^"]+"[^\n]*\n\s*\(at (-?[\d.]+) (-?[\d.]+)', b))]
         return []
 
-    # Each buffer's output legs (Net-(R..-Pad1)) with the PAN net of the resistor
-    # they feed, so the leg can be retargeted to the matching pair by connectivity.
-    legs, tny = [], set()
-    for b in bufs:
-        for net in fps[b]["pads"].values():
-            if net in POWER_NETS:
-                continue
+    def leg_pans(buf):
+        """{output pad: PAN net its series resistor feeds (None: spare OUT_6)}."""
+        out = {}
+        for pad, net in fps[buf]["pads"].items():
             if net.startswith("Net-("):
                 rr = next((x for x in fps if x[0] == "R" and net in fps[x]["pads"].values()), None)
-                pan = next((v for v in fps[rr]["pads"].values()
-                            if v.startswith("/Fan Out/PAN")), None) if rr else None
-                legs.append((net, pan))
-            elif "TNY." in net:
-                tny.add(net)
-    shared_signal = {leg for leg, _ in legs}
-    shared_pts = [p for ref in refs for p in pad_centers(ref)]
+                out[pad] = next((v for v in fps[rr]["pads"].values()
+                                 if v.startswith("/Fan Out/PAN")), None) if rr else None
+        return out
+
+    def panel(pan):
+        m = re.search(r"_P(\d+)$", pan or "")
+        return int(m.group(1)) if m else None
+
+    # The template buffers' output legs (Net-(R..-Pad1)) are their own nets, taken
+    # net-wide; the P2-side leg's PAN net is what to_col retargets per panel.
+    shared_signal = {net for b in bufs for net in fps[b]["pads"].values()
+                     if net.startswith("Net-(")}
+    ref_pts = {ref: pad_centers(ref) for ref in refs}
+    shared_pts = [p for pts in ref_pts.values() for p in pts]
 
     def touches(t):
         return any(math.hypot(px - gx, py - gy) < 0.4
@@ -414,45 +423,74 @@ def shared_block_replicate(txt, fps, tracks, sch_path):
         elif (net in POWER_NETS or (net and "TNY." in net)) and touches(t):
             shared_ids.add(i)
 
-    p2c = fps[TEMPLATE]
+    # Each shared track belongs to ONE template buffer: its output legs by net,
+    # anything else by the buffer (or that buffer's cap) whose pad it touches.
+    cap_buf = dict(zip(SHARED_CAPS, SHARED_BUFFERS))
 
-    def make_tp(e):
-        tc = fps[f"P{e}"]
-        def tp(x, y):
-            lx, ly = kicad_rotate(x - p2c["x"], y - p2c["y"], -p2c["a"])
-            gx, gy = kicad_rotate(lx, ly, tc["a"])
-            return tc["x"] + gx, tc["y"] + gy
-        return tp
+    def owner(t):
+        for b in bufs:
+            if t["net"] in fps[b]["pads"].values() and t["net"].startswith("Net-("):
+                return b
+        for ref, pts in ref_pts.items():
+            if any(math.hypot(px - gx, py - gy) < 0.4 for px, py in t["pts"] for gx, gy in pts):
+                return cap_buf.get(ref, ref)
+        return None
+    owned: dict = {}
+    for i in shared_ids:
+        owned.setdefault(owner(tracks[i]), []).append(i)
 
-    def net_map(e):
-        m = {}
-        for leg, pan in legs:
-            if not pan:
-                continue
-            panel = int(re.search(r"_P(\d+)$", pan).group(1))
-            tgt_panel = e if panel % 2 == 0 else e - 1     # even->Pe, odd partner->P(e-1)
-            rk = resistor_by_pan(to_col(pan, tgt_panel, nets))
-            if rk:
-                newleg = next((v for v in fps[rk]["pads"].values() if v.startswith("Net-(")), None)
-                if newleg:
-                    m[leg] = newleg
-        bank = bank_of(e, nets)
-        for t in tny:                                      # Teensy bus: bank-adjust only
-            if not re.search(r"_B[01]$", t):
-                m[t] = t                                   # bankless bus (EINT)
-            elif bank:
-                m[t] = re.sub(r"_B[01]$", f"_{bank}", t)
-            # bank unknown -> leave unmapped, so these tracks are skipped + counted
-        return m
-
-    additions, skipped = [], 0
-    for e in PAIR_ANCHORS:
-        if e == int(TEMPLATE[1:]):
+    # Every other buffer of each template buffer's signal, by connectivity.
+    targets = []                                    # (template buf, buf)
+    for b in bufs:
+        pan2 = next((p for p in leg_pans(b).values() if panel(p) == 2), None)
+        if not pan2:
             continue
-        tp, nm = make_tp(e), net_map(e)
-        for i in shared_ids:
-            t = tracks[i]
-            net = t["net"]
+        for k in range(1, N_PANELS + 1):
+            rk = resistor_by_pan(to_col(pan2, k, nets))
+            leg = next((v for v in fps[rk]["pads"].values() if v.startswith("Net-(")), None) if rk else None
+            u = next((u for u in fps if u[0] == "U" and leg in fps[u]["pads"].values()), None) if leg else None
+            if u and u != b and (b, u) not in targets:
+                targets.append((b, u))
+
+    additions, skipped, copied, spare_legs = [], 0, 0, []
+    for b, u in targets:
+        tpans, upans = leg_pans(b), leg_pans(u)
+        # (template panel, this buffer's panel) per used output pad: one ring shift
+        roles = sorted((panel(tpans[pad]), panel(p)) for pad, p in upans.items()
+                       if p and pad in tpans)
+        if not roles or len({k - t for t, k in roles}) != 1:
+            print(f"WARNING: {u} outputs are not in {b}'s pin order; its shared tracks are skipped.")
+            skipped += len(owned.get(b, []))
+            continue
+        t, k = roles[0]
+        src, dst = fps[f"P{t}"], fps[f"P{k}"]
+
+        def tp(x, y, src=src, dst=dst):
+            lx, ly = kicad_rotate(x - src["x"], y - src["y"], -src["a"])
+            gx, gy = kicad_rotate(lx, ly, dst["a"])
+            return dst["x"] + gx, dst["y"] + gy
+
+        # 02 puts the buffer exactly here; anywhere else, the copy would miss it.
+        ex, ey = tp(fps[b]["x"], fps[b]["y"])
+        da = (fps[u]["a"] - fps[b]["a"] - (dst["a"] - src["a"]) + 180) % 360 - 180
+        if math.hypot(fps[u]["x"] - ex, fps[u]["y"] - ey) > 0.01 or abs(da) > 0.01:
+            print(f"NOTE: {u} is not at {b}'s spot for P{k} (left for hand placement, or "
+                  f"02 not run); its shared tracks are not copied.")
+            skipped += len(owned.get(b, []))
+            continue
+        # pad-by-pad net map; a spare (OUT_6) leg stays unmapped, so it is skipped
+        nm = {}
+        for pad, net in fps[b]["pads"].items():
+            new = fps[u]["pads"].get(pad)
+            if not net or not new or net in POWER_NETS:
+                continue
+            if pad in upans and upans[pad] is None:
+                spare_legs.append(f"{u}.{pad}")
+                continue
+            nm[net] = new
+        for i in owned.get(b, []):
+            tr = tracks[i]
+            net = tr["net"]
             if net is None or net in POWER_NETS:
                 newnet = net
             elif net in nm:
@@ -460,13 +498,15 @@ def shared_block_replicate(txt, fps, tracks, sch_path):
             else:
                 skipped += 1
                 continue
-            blk = COORD_RE.sub(lambda m: f"({m.group(1)} " + " ".join(fmt(v) for v in tp(float(m.group(2)), float(m.group(3)))) + ")", t["text"])
+            blk = COORD_RE.sub(lambda m: f"({m.group(1)} " + " ".join(fmt(v) for v in tp(float(m.group(2)), float(m.group(3)))) + ")", tr["text"])
             if newnet is not None:
                 blk = re.sub(r'\(net "[^"]*"\)', f'(net "{newnet}")', blk, count=1)
             blk = re.sub(r'\(uuid "[^"]*"\)', f'(uuid "{uuid.uuid4()}")', blk, count=1)
             additions.append(blk)
-    npairs = sum(1 for e in PAIR_ANCHORS if e != int(TEMPLATE[1:]))
-    print(f"Shared buffer block: {len(shared_ids)} P2 tracks -> {npairs} pairs "
+        copied += 1
+    if spare_legs:
+        print(f"NOTE: spare-output (OUT_6) legs not copied (route by hand): {', '.join(spare_legs)}")
+    print(f"Shared buffer block: {len(shared_ids)} P2 tracks -> {copied} buffers "
           f"= {len(additions)} tracks ({skipped} skipped).")
     return additions, shared_ids
 
@@ -577,7 +617,7 @@ def main() -> None:
         for (net, n), cols in skipped.items():
             print(f"  {net}  ({n} candidates) in columns {sorted(set(cols))}")
 
-    new_blocks.extend(shared_additions)     # shared SCK/COPI block traces (even anchors)
+    new_blocks.extend(shared_additions)     # shared SCK/COPI/EINT buffer traces
 
     # insert new tracks before the final top-level ')'
     idx = txt.rstrip().rfind(")")
