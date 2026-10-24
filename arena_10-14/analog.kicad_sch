@@ -4535,7 +4535,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "20k"
+		(property "Value" "10k"
 			(at 101.854 137.16 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4579,7 +4579,7 @@
 				)
 			)
 		)
-		(property "LCSC Part #" "C705630 "
+		(property "LCSC Part #" "C190095"
 			(at 97.79 135.89 0)
 			(hide yes)
 			(show_name no)
@@ -5153,7 +5153,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "20k"
+		(property "Value" "10k"
 			(at 105.664 105.41 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5197,7 +5197,7 @@
 				)
 			)
 		)
-		(property "LCSC Part #" "C705630 "
+		(property "LCSC Part #" "C190095"
 			(at 101.6 104.14 0)
 			(hide yes)
 			(show_name no)
@@ -6623,7 +6623,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "20k"
 			(at 107.442 129.032 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6667,7 +6667,7 @@
 				)
 			)
 		)
-		(property "LCSC Part #" "C190095 "
+		(property "LCSC Part #" "C705630"
 			(at 104.14 130.81 90)
 			(hide yes)
 			(show_name no)
@@ -10779,7 +10779,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "20k"
 			(at 111.252 97.282 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10823,7 +10823,7 @@
 				)
 			)
 		)
-		(property "LCSC Part #" "C190095 "
+		(property "LCSC Part #" "C705630"
 			(at 107.95 99.06 90)
 			(hide yes)
 			(show_name no)
