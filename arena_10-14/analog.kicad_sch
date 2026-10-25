@@ -7632,7 +7632,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "BNC:BNC"
+		(property "Footprint" "BNC:BNC_HenryTech_HL-BNC_KHDA"
 			(at 176.53 128.27 0)
 			(hide yes)
 			(show_name no)
@@ -7665,7 +7665,7 @@
 				)
 			)
 		)
-		(property "LCSC Part #" "C2837587"
+		(property "LCSC Part #" "C19712152"
 			(at 176.53 128.27 0)
 			(hide yes)
 			(show_name no)
@@ -9371,7 +9371,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "BNC:BNC"
+		(property "Footprint" "BNC:BNC_HenryTech_HL-BNC_KHDA"
 			(at 180.34 96.52 0)
 			(hide yes)
 			(show_name no)
@@ -9404,7 +9404,7 @@
 				)
 			)
 		)
-		(property "LCSC Part #" "C2837587"
+		(property "LCSC Part #" "C19712152"
 			(at 180.34 96.52 0)
 			(hide yes)
 			(show_name no)
@@ -10884,7 +10884,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "BNC:BNC"
+		(property "Footprint" "BNC:BNC_HenryTech_HL-BNC_KHDA"
 			(at 99.06 43.18 0)
 			(hide yes)
 			(show_name no)
@@ -10917,7 +10917,7 @@
 				)
 			)
 		)
-		(property "LCSC Part #" "C2837587"
+		(property "LCSC Part #" "C19712152"
 			(at 99.06 43.18 0)
 			(hide yes)
 			(show_name no)

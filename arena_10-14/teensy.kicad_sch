@@ -11886,7 +11886,7 @@
 			(color 0 0 0 0)
 		)
 		(uuid "5323e314-3af0-467c-b6ee-85ebf473fc8d")
-		(property "Sheetname" "Digital IO 04"
+		(property "Sheetname" "DIO3"
 			(at 166.37 83.1084 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11952,7 +11952,7 @@
 			(color 0 0 0 0)
 		)
 		(uuid "a5d80b6d-7b03-4efe-aceb-a187bbe51c45")
-		(property "Sheetname" "Digital IO 01"
+		(property "Sheetname" "DIO2"
 			(at 166.37 131.3684 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12018,7 +12018,7 @@
 			(color 0 0 0 0)
 		)
 		(uuid "c62a8aca-a971-4caa-ac99-d7cd06aa3485")
-		(property "Sheetname" "Digital IO 02"
+		(property "Sheetname" "DIO1"
 			(at 166.37 114.8584 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12084,7 +12084,7 @@
 			(color 0 0 0 0)
 		)
 		(uuid "f1f2affe-2e96-43b7-9d2b-13ec41e58542")
-		(property "Sheetname" "Digital IO 03"
+		(property "Sheetname" "DIO4"
 			(at 166.37 98.3484 0)
 			(show_name no)
 			(do_not_autoplace no)

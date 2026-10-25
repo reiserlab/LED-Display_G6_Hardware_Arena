@@ -39,9 +39,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 4.5,
-          "height": 9.0,
-          "width": 9.0
+          "drill": 1.1,
+          "height": 1.7,
+          "width": 1.7
         },
         "silk_line_width": 0.1,
         "silk_text_italic": false,
@@ -60,11 +60,11 @@
           "hatch_smoothing_level": 0,
           "hatch_smoothing_value": 0.1,
           "hatch_thickness": 1.0,
-          "min_clearance": 0.5,
+          "min_clearance": 1.0,
           "min_island_area": 10.0,
           "min_thickness": 0.25,
           "pad_connection": 1,
-          "remove_islands": 0,
+          "remove_islands": 1,
           "thermal_relief_gap": 0.5,
           "thermal_relief_spoke_width": 0.5
         }
@@ -1076,11 +1076,11 @@
     ],
     [
       "a5d80b6d-7b03-4efe-aceb-a187bbe51c45",
-      "Digital IO 01"
+      "DIO2"
     ],
     [
       "c62a8aca-a971-4caa-ac99-d7cd06aa3485",
-      "Digital IO 02"
+      "DIO1"
     ],
     [
       "f8e525f6-92ff-481c-b9d6-983b91f2917d",
@@ -1132,11 +1132,11 @@
     ],
     [
       "f1f2affe-2e96-43b7-9d2b-13ec41e58542",
-      "Digital IO 03"
+      "DIO4"
     ],
     [
       "5323e314-3af0-467c-b6ee-85ebf473fc8d",
-      "Digital IO 04"
+      "DIO3"
     ],
     [
       "d96daf24-ea5c-417f-ad13-9d32347ba506",

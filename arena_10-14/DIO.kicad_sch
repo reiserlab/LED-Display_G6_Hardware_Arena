@@ -1681,7 +1681,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "BNC:BNC"
+		(property "Footprint" "BNC:BNC_HenryTech_HL-BNC_KHDA"
 			(at 137.16 85.09 0)
 			(hide yes)
 			(show_name no)
@@ -1714,7 +1714,7 @@
 				)
 			)
 		)
-		(property "LCSC Part #" "C2837587"
+		(property "LCSC Part #" "C19712152"
 			(at 137.16 85.09 0)
 			(hide yes)
 			(show_name no)

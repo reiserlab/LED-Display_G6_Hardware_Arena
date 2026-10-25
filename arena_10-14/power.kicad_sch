@@ -2116,7 +2116,8 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x02")
-		(at 88.9 91.44 0)
+		(at 88.9 93.98 0)
+		(mirror x)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2127,7 +2128,7 @@
 		(fields_autoplaced yes)
 		(uuid "3d12c2d0-9cb3-441e-9c51-00d3b1f95b5f")
 		(property "Reference" "J5"
-			(at 91.44 91.4399 0)
+			(at 91.44 93.9801 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2138,7 +2139,7 @@
 			)
 		)
 		(property "Value" "XT30"
-			(at 91.44 93.9799 0)
+			(at 91.44 91.4401 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2149,7 +2150,7 @@
 			)
 		)
 		(property "Footprint" "Connector_AMASS:AMASS_XT30UPB-F_1x02_P5.0mm_Vertical"
-			(at 88.9 91.44 0)
+			(at 88.9 93.98 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2160,7 +2161,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 88.9 91.44 0)
+			(at 88.9 93.98 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2171,7 +2172,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 88.9 91.44 0)
+			(at 88.9 93.98 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2182,7 +2183,7 @@
 			)
 		)
 		(property "LCSC Part #" "C108769"
-			(at 88.9 91.44 0)
+			(at 88.9 93.98 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
