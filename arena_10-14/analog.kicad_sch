@@ -8175,17 +8175,6 @@
 				)
 			)
 		)
-		(property "FT Rotation Offset" "180"
-			(at 176.53 128.27 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "2"
 			(uuid "007de795-23c3-45fd-908b-3851f27dc4ed")
 		)
@@ -9991,17 +9980,6 @@
 				)
 			)
 		)
-		(property "FT Rotation Offset" "180"
-			(at 180.34 96.52 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "2"
 			(uuid "f279db70-903c-4c6c-8f93-2e9629f17c2c")
 		)
@@ -11650,17 +11628,6 @@
 			)
 		)
 		(property "LCSC Part #" "C19712152"
-			(at 99.06 43.18 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "FT Rotation Offset" "180"
 			(at 99.06 43.18 0)
 			(hide yes)
 			(show_name no)
