@@ -6,7 +6,7 @@
 	(paper "USLetter")
 	(title_block
 		(title "G6 Teensy 10-14 Arena")
-		(date "2026-08-03")
+		(date "2026-10-25")
 		(rev "v1.0")
 		(company "Reiser Lab @ Janelia | HHMI")
 	)
@@ -314,7 +314,7 @@
 				)
 			)
 			(property "Description" "Unpolarized capacitor, small symbol"
-				(at 0 0 0)
+				(at 0 -10.16 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
@@ -364,7 +364,7 @@
 						(xy -1.524 -0.508) (xy 1.524 -0.508)
 					)
 					(stroke
-						(width 0.3302)
+						(width 0.3048)
 						(type default)
 					)
 					(fill
@@ -1659,7 +1659,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1206L005/110WR"
+		(property "Value" "1.1A PTC"
 			(at 157.48 52.0699 0)
 			(show_name no)
 			(do_not_autoplace no)

@@ -6,7 +6,7 @@
 	(paper "USLedger")
 	(title_block
 		(title "G6 Teensy 10-14 Arena")
-		(date "2026-08-03")
+		(date "2026-10-25")
 		(rev "v1.0")
 		(company "Reiser Lab @ Janelia | HHMI")
 	)
@@ -212,12 +212,6 @@
 		(uuid "9c24d2f3-605e-46c0-b829-059039f1263e")
 	)
 	(junction
-		(at 228.6 209.55)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "b073e437-a6f3-42e2-8113-fa1957e5310b")
-	)
-	(junction
 		(at 87.63 209.55)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -236,8 +230,24 @@
 		(uuid "d694f3e8-9ad6-450b-b0ac-9a00373fbe8d")
 	)
 	(no_connect
+		(at 116.84 118.11)
+		(uuid "01bff5c4-b914-43bd-b011-e97b0e318b13")
+	)
+	(no_connect
+		(at 116.84 66.04)
+		(uuid "2247645a-b658-46f3-9064-877b4d8d965c")
+	)
+	(no_connect
 		(at 116.84 143.51)
 		(uuid "6b206ecd-cbd5-453d-a655-58cd1f42536b")
+	)
+	(no_connect
+		(at 116.84 40.64)
+		(uuid "738d058a-0b3e-47a9-a257-515807dd2b8f")
+	)
+	(no_connect
+		(at 116.84 92.71)
+		(uuid "a806b374-a02d-46ae-8904-c71bba54c731")
 	)
 	(no_connect
 		(at 116.84 168.91)
@@ -4865,16 +4875,6 @@
 			(type default)
 		)
 		(uuid "f47bb15c-1ccf-423d-9933-7b3e3a263668")
-	)
-	(wire
-		(pts
-			(xy 275.59 209.55) (xy 228.6 209.55)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f5521309-d689-42f4-9dbb-8e4d6ac3b51c")
 	)
 	(wire
 		(pts

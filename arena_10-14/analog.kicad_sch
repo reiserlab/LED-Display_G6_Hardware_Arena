@@ -6,7 +6,7 @@
 	(paper "USLetter")
 	(title_block
 		(title "G6 Teensy 10-14 Arena")
-		(date "2026-08-03")
+		(date "2026-10-25")
 		(rev "v1.0")
 		(company "Reiser Lab @ Janelia | HHMI")
 	)
@@ -814,6 +814,129 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Connector:TestPoint"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.762)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "TP"
+				(at 0 6.858 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "TestPoint"
+				(at 0 5.08 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 5.08 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 5.08 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "test point"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "test point tp"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "Pin* Test*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "TestPoint_0_1"
+				(circle
+					(center 0 3.302)
+					(radius 0.762)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "TestPoint_1_1"
+				(pin passive line
+					(at 0 0 90)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Device:C_Small"
 			(pin_numbers
 				(hide yes)
@@ -872,7 +995,7 @@
 				)
 			)
 			(property "Description" "Unpolarized capacitor, small symbol"
-				(at 0 0 0)
+				(at 0 -10.16 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
@@ -922,7 +1045,7 @@
 						(xy -1.524 -0.508) (xy 1.524 -0.508)
 					)
 					(stroke
-						(width 0.3302)
+						(width 0.3048)
 						(type default)
 					)
 					(fill
@@ -2692,6 +2815,16 @@
 	)
 	(wire
 		(pts
+			(xy 247.65 129.54) (xy 247.65 135.89)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1d185948-4d9b-49dc-a729-3ed9b2090c0f")
+	)
+	(wire
+		(pts
 			(xy 64.77 166.37) (xy 96.52 166.37)
 		)
 		(stroke
@@ -3792,6 +3925,16 @@
 	)
 	(wire
 		(pts
+			(xy 220.98 151.13) (xy 220.98 160.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c6aead5a-04c4-4eac-8213-81efcc01fc65")
+	)
+	(wire
+		(pts
 			(xy 92.71 177.8) (xy 115.57 177.8)
 		)
 		(stroke
@@ -3939,6 +4082,16 @@
 			(type default)
 		)
 		(uuid "d9e70a92-d691-43bd-93c9-10952ddb1530")
+	)
+	(wire
+		(pts
+			(xy 231.14 129.54) (xy 231.14 135.89)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "da90731a-a756-4e9e-acc9-34a7b6e9ff18")
 	)
 	(wire
 		(pts
@@ -4220,7 +4373,7 @@
 		)
 		(uuid "ff72263b-d22d-4c94-83f6-9cabb47a5f99")
 	)
-	(label "A0_5V"
+	(label "A0_10V"
 		(at 165.1 128.27 0)
 		(effects
 			(font
@@ -4239,6 +4392,16 @@
 			(justify right bottom)
 		)
 		(uuid "13f261c0-c82b-484e-aa89-ba3d4d84ba06")
+	)
+	(label "A1_10V"
+		(at 231.14 135.89 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "1ad4c4e1-1b87-4243-82c7-a9c466fe401b")
 	)
 	(label "10V_REF"
 		(at 134.62 80.01 270)
@@ -4260,7 +4423,7 @@
 		)
 		(uuid "7041d374-ea11-42f0-98aa-a4d8b4708d42")
 	)
-	(label "A1_5V"
+	(label "A1_10V"
 		(at 168.91 96.52 0)
 		(effects
 			(font
@@ -4279,6 +4442,16 @@
 			(justify left bottom)
 		)
 		(uuid "8349f23b-8357-4457-abeb-25e26878e0ef")
+	)
+	(label "A0_10V"
+		(at 247.65 135.89 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b569bb3e-b152-499e-9e0a-553d21764f6f")
 	)
 	(label "10V_REF"
 		(at 140.97 168.91 180)
@@ -4299,6 +4472,16 @@
 			(justify left bottom)
 		)
 		(uuid "e9ddde3b-9c61-4a31-8189-cf489c0e70fc")
+	)
+	(label "10V_REF"
+		(at 220.98 160.02 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f16fefdd-405c-4a36-ab40-087dbb67bfd1")
 	)
 	(label "AOUT"
 		(at 88.9 43.18 0)
@@ -4341,6 +4524,243 @@
 			(justify right)
 		)
 		(uuid "f2b741e5-87a4-4217-a651-b96d84705729")
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 220.98 151.13 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0000ff01-c724-4ed5-8291-e7ea598f1a39")
+		(property "Reference" "TP3"
+			(at 223.52 146.5579 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10V REF"
+			(at 223.52 149.0979 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
+			(at 226.06 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 226.06 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 220.98 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "61d99ba8-a431-4fe8-bf38-30bca5ffe98a")
+		)
+		(instances
+			(project "arena_10-14"
+				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/d9742f93-cea2-4d1e-a4e2-1bef85a1b88a"
+					(reference "TP3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 238.76 151.13 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "012e2fad-b9a9-4bdc-82ba-ea533523da8a")
+		(property "Reference" "TP4"
+			(at 241.3 153.1619 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "+15V"
+			(at 241.3 155.7019 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
+			(at 233.68 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 233.68 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 238.76 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d5d7cb2c-3e6d-4059-84d1-cc2cadca9b47")
+		)
+		(instances
+			(project "arena_10-14"
+				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/d9742f93-cea2-4d1e-a4e2-1bef85a1b88a"
+					(reference "TP4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 231.14 129.54 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "039b3372-78da-4c72-a2a7-6ed9f688e4b8")
+		(property "Reference" "TP6"
+			(at 233.68 124.9679 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "AI2"
+			(at 233.68 127.5079 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
+			(at 236.22 129.54 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 236.22 129.54 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 231.14 129.54 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "0ccf8c95-d248-4252-ac0d-d334dd33eea7")
+		)
+		(instances
+			(project "arena_10-14"
+				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/d9742f93-cea2-4d1e-a4e2-1bef85a1b88a"
+					(reference "TP6")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_id "Device:C_Small")
@@ -7521,6 +7941,85 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 256.54 151.13 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "6e1fd178-d51f-4e61-a2e0-22d670179544")
+		(property "Reference" "TP5"
+			(at 259.08 146.5579 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "-15V"
+			(at 259.08 149.0979 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
+			(at 261.62 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 261.62 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 256.54 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "6865f8e0-ae23-4fd5-bbf0-595062ca2822")
+		)
+		(instances
+			(project "arena_10-14"
+				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/d9742f93-cea2-4d1e-a4e2-1bef85a1b88a"
+					(reference "TP5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+15V")
 		(at 153.67 19.05 0)
 		(unit 1)
@@ -8395,6 +8894,83 @@
 			(project "arena_10-14"
 				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/d9742f93-cea2-4d1e-a4e2-1bef85a1b88a"
 					(reference "C97")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:-15V")
+		(at 256.54 151.13 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "9305e62b-552e-4a61-81e6-eab32f8c5c95")
+		(property "Reference" "#PWR0473"
+			(at 256.54 147.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "-15V"
+			(at 256.54 154.94 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 256.54 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 256.54 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"-15V\""
+			(at 256.54 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "85748167-2145-4172-9acd-4400e49a54de")
+		)
+		(instances
+			(project "arena_10-14"
+				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/d9742f93-cea2-4d1e-a4e2-1bef85a1b88a"
+					(reference "#PWR0473")
 					(unit 1)
 				)
 			)
@@ -10012,6 +10588,85 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 247.65 129.54 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c9e950a4-735a-493a-9e41-2966b48cae9a")
+		(property "Reference" "TP7"
+			(at 250.19 124.9679 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "AI1"
+			(at 250.19 127.5079 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
+			(at 252.73 129.54 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 252.73 129.54 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 247.65 129.54 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f8eaa12a-db5a-404d-89d2-6267396e3db5")
+		)
+		(instances
+			(project "arena_10-14"
+				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/d9742f93-cea2-4d1e-a4e2-1bef85a1b88a"
+					(reference "TP7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_name "GND_1")
 		(lib_id "power:GND")
 		(at 48.26 93.98 0)
@@ -10752,6 +11407,83 @@
 			(project "arena_10-14"
 				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/d9742f93-cea2-4d1e-a4e2-1bef85a1b88a"
 					(reference "R194")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+15V")
+		(at 238.76 151.13 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "db1479b6-202d-41b6-85df-5e1d74434e98")
+		(property "Reference" "#PWR0472"
+			(at 238.76 154.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+15V"
+			(at 238.76 147.574 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 238.76 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 238.76 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+15V\""
+			(at 238.76 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "17531444-e8bb-400a-b76c-2f8a06c76e5e")
+		)
+		(instances
+			(project "arena_10-14"
+				(path "/056666d2-2c8f-491c-bcad-db3c517779a8/d9742f93-cea2-4d1e-a4e2-1bef85a1b88a"
+					(reference "#PWR0472")
 					(unit 1)
 				)
 			)

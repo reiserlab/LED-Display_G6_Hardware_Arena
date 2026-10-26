@@ -6,7 +6,7 @@
 	(paper "A4")
 	(title_block
 		(title "G6 Teensy 10-14 Arena")
-		(date "2026-08-03")
+		(date "2026-10-25")
 		(rev "v1.0")
 		(company "Reiser Lab @ Janelia | HHMI")
 	)

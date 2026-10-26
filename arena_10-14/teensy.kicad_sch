@@ -6,7 +6,7 @@
 	(paper "USLetter")
 	(title_block
 		(title "G6 Teensy 10-14 Arena")
-		(date "2026-08-03")
+		(date "2026-10-25")
 		(rev "v1.0")
 		(company "Reiser Lab @ Janelia | HHMI")
 	)
@@ -6816,7 +6816,7 @@
 		)
 		(uuid "23fb56bb-6277-4a5e-91c3-4dd89eb1a3d7")
 	)
-	(label "Qwiic_SDL"
+	(label "Qwiic_SCL"
 		(at 124.46 63.5 180)
 		(effects
 			(font
@@ -7346,7 +7346,7 @@
 		)
 		(uuid "e11f8f00-27fe-4125-a3bd-fadd501fa04c")
 	)
-	(label "Qwiic_SDL"
+	(label "Qwiic_SCL"
 		(at 113.03 185.42 0)
 		(effects
 			(font
@@ -9127,7 +9127,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
 			(at 129.54 180.34 0)
 			(hide yes)
 			(show_name no)
