@@ -5355,7 +5355,7 @@
 				)
 			)
 		)
-		(property "LCSC Part #" "C190095 "
+		(property "LCSC Part #" "C190095"
 			(at 160.02 128.27 90)
 			(hide yes)
 			(show_name no)
@@ -11364,7 +11364,7 @@
 				)
 			)
 		)
-		(property "LCSC Part #" "C190095 "
+		(property "LCSC Part #" "C190095"
 			(at 134.62 91.44 0)
 			(hide yes)
 			(show_name no)
