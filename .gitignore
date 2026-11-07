@@ -7,3 +7,6 @@ logs
 *.lck
 _autosave*
 *.swp
+
+*FCBak
+*bak
