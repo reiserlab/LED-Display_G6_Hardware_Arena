@@ -1,0 +1,29 @@
+port COM5; 5 s per state for 60 s. Read the DMM in each state.
+  0.0s  >>> ALL OFF <<<
+        AI1    315.2 mV   AI2   5631.0 mV   (25 samples)
+  5.0s  >>> ALL ON  <<<
+        AI1    344.3 mV   AI2   5666.8 mV   (25 samples)
+ 10.1s  >>> ALL OFF <<<
+        AI1    311.2 mV   AI2   5640.8 mV   (25 samples)
+ 15.1s  >>> ALL ON  <<<
+        AI1    342.8 mV   AI2   5666.4 mV   (25 samples)
+ 20.2s  >>> ALL OFF <<<
+        AI1    315.8 mV   AI2   5633.0 mV   (25 samples)
+ 25.2s  >>> ALL ON  <<<
+        AI1    341.0 mV   AI2   5664.4 mV   (25 samples)
+ 30.3s  >>> ALL OFF <<<
+        AI1    312.0 mV   AI2   5639.7 mV   (25 samples)
+ 35.3s  >>> ALL ON  <<<
+        AI1    342.2 mV   AI2   5666.6 mV   (25 samples)
+ 40.4s  >>> ALL OFF <<<
+        AI1    315.6 mV   AI2   5631.1 mV   (25 samples)
+ 45.4s  >>> ALL ON  <<<
+        AI1    342.1 mV   AI2   5666.0 mV   (25 samples)
+ 50.5s  >>> ALL OFF <<<
+        AI1    310.2 mV   AI2   5637.8 mV   (25 samples)
+ 55.5s  >>> ALL ON  <<<
+        AI1    343.6 mV   AI2   5665.2 mV   (25 samples)
+mean OFF: AI1    313.3 mV   AI2   5635.6 mV
+mean ON : AI1    342.7 mV   AI2   5665.9 mV
+ON - OFF: AI1 +29.3 mV   AI2 +30.3 mV
+arena left ALL OFF

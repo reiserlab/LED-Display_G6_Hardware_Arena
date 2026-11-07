@@ -1,0 +1,56 @@
+tests/test_panel_inventory.py::test_feature_bit_advertised PASSED        [  7%]
+tests/test_panel_inventory.py::test_default_request_reads_first_page PASSED [ 14%]
+tests/test_panel_inventory.py::test_pages_cover_every_panel_once PASSED  [ 21%]
+tests/test_panel_inventory.py::test_entries_are_well_formed PASSED       [ 28%]
+tests/test_panel_inventory.py::test_bad_action_rejected PASSED           [ 35%]
+tests/test_panel_inventory.py::test_scan_requires_action_byte PASSED     [ 42%]
+tests/test_panel_inventory.py::test_rescan_refused_while_display_runs_but_read_allowed PASSED [ 50%]
+tests/test_panel_inventory.py::test_presence_rescan PASSED               [ 57%]
+tests/test_panel_inventory.py::test_presence_rescan_keeps_fingerprints PASSED [ 64%]
+tests/test_panel_inventory.py::test_fingerprint_rescan_discards_fingerprints PASSED [ 71%]
+tests/test_panel_inventory.py::test_display_started_before_boot_scan_cancels_it FAILED [ 78%]
+tests/test_panel_inventory.py::test_display_started_before_boot_scan_cancels_it ERROR [ 78%]
+tests/test_panel_inventory.py::test_fingerprint_sweep_completes ERROR    [ 85%]
+tests/test_panel_inventory.py::test_reference_matches_sd_footer ERROR    [ 92%]
+tests/test_panel_inventory.py::test_fingerprint_agrees_with_verify_panel ERROR [100%]
+tests/test_panel_inventory.py::test_fingerprint_agrees_with_verify_panel ERROR [100%]
+=================================== ERRORS ====================================
+____ ERROR at teardown of test_display_started_before_boot_scan_cancels_it ____
+            raise PortNotOpenError()
+            #~ raise TypeError('expected %s or bytearray, got %s' % (bytes, type(data)))
+                if not success and win32.GetLastError() not in (win32.ERROR_SUCCESS, win32.ERROR_IO_PENDING):
+>                   raise SerialException("WriteFile failed ({!r})".format(ctypes.WinError()))
+E                   serial.serialutil.SerialException: WriteFile failed (PermissionError(13, 'The device does not recognize the command.', None, 22))
+_____________ ERROR at setup of test_fingerprint_sweep_completes ______________
+            raise PortNotOpenError()
+            #~ raise TypeError('expected %s or bytearray, got %s' % (bytes, type(data)))
+                if not success and win32.GetLastError() not in (win32.ERROR_SUCCESS, win32.ERROR_IO_PENDING):
+>                   raise SerialException("WriteFile failed ({!r})".format(ctypes.WinError()))
+E                   serial.serialutil.SerialException: WriteFile failed (PermissionError(13, 'The device does not recognize the command.', None, 22))
+_____________ ERROR at setup of test_reference_matches_sd_footer ______________
+            raise PortNotOpenError()
+            #~ raise TypeError('expected %s or bytearray, got %s' % (bytes, type(data)))
+                if not success and win32.GetLastError() not in (win32.ERROR_SUCCESS, win32.ERROR_IO_PENDING):
+>                   raise SerialException("WriteFile failed ({!r})".format(ctypes.WinError()))
+E                   serial.serialutil.SerialException: WriteFile failed (PermissionError(13, 'The device does not recognize the command.', None, 22))
+_________ ERROR at setup of test_fingerprint_agrees_with_verify_panel _________
+            raise PortNotOpenError()
+            #~ raise TypeError('expected %s or bytearray, got %s' % (bytes, type(data)))
+                if not success and win32.GetLastError() not in (win32.ERROR_SUCCESS, win32.ERROR_IO_PENDING):
+>                   raise SerialException("WriteFile failed ({!r})".format(ctypes.WinError()))
+E                   serial.serialutil.SerialException: WriteFile failed (PermissionError(13, 'The device does not recognize the command.', None, 22))
+_______ ERROR at teardown of test_fingerprint_agrees_with_verify_panel ________
+        if not win32.ClearCommError(self._port_handle, ctypes.byref(flags), ctypes.byref(comstat)):
+>           raise SerialException("ClearCommError failed ({!r})".format(ctypes.WinError()))
+E           serial.serialutil.SerialException: ClearCommError failed (PermissionError(13, 'The device does not recognize the command.', None, 22))
+        assert st == 0 and bytes(payload) == b"rebooting"
+        if not win32.ClearCommError(self._port_handle, ctypes.byref(flags), ctypes.byref(comstat)):
+>           raise SerialException("ClearCommError failed ({!r})".format(ctypes.WinError()))
+E           serial.serialutil.SerialException: ClearCommError failed (PermissionError(13, 'The device does not recognize the command.', None, 22))
+FAILED tests/test_panel_inventory.py::test_display_started_before_boot_scan_cancels_it
+ERROR tests/test_panel_inventory.py::test_display_started_before_boot_scan_cancels_it
+ERROR tests/test_panel_inventory.py::test_fingerprint_sweep_completes - seria...
+ERROR tests/test_panel_inventory.py::test_reference_matches_sd_footer - seria...
+ERROR tests/test_panel_inventory.py::test_fingerprint_agrees_with_verify_panel
+ERROR tests/test_panel_inventory.py::test_fingerprint_agrees_with_verify_panel
+=================== 1 failed, 10 passed, 5 errors in 14.02s ===================

@@ -1,0 +1,4 @@
+SET_ANALOG_CAL ch1 gnd: status 0 payload 01 0c 01 00 01 ff 0f 40 08 14 00 00 00 00 00 00 14 00
+[capped, DARK (calibrated)] flags 0x05  AI1    -0.33 mV  std 13.16 mV  min -25 max 20   raw  2111.48  std 2.51 cnt
+[capped, ALL ON (calibrated)] flags 0x05  AI1    27.38 mV  std  9.58 mV  min -5 max 45   raw  2117.91  std 1.48 cnt
+[capped, DARK again] flags 0x05  AI1    -0.40 mV  std 12.24 mV  min -20 max 20   raw  2111.97  std 2.50 cnt

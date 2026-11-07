@@ -1,0 +1,6 @@
+[T1 AI1 capped / AI2 open] port COM5  flags 0x4
+  AI1 mV : mean    314.40 mV  std  12.05  min 295  max 335  (n=200)
+  AI2 mV : mean   5636.10 mV  std  17.63  min 5604  max 5668  (n=200)
+  AI1 raw: mean   2112.03 cnt  std   2.47  min 2108  max 2116  (n=200)
+  AI2 raw: mean   3201.22 cnt  std   3.75  min 3195  max 3208  (n=200)
+  last 0xA5 payload: 40 08 7f 0c

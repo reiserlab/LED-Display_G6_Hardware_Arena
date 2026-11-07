@@ -1,0 +1,11 @@
+>>> AO = 1000 mV <<<  (set status 0) — read the DMM now
+    AI1   1067.4 mV  std  12.1  (n=241, flags 0x05)
+>>> AO = 2500 mV <<<  (set status 0) — read the DMM now
+    AI1   2711.6 mV  std  13.6  (n=241, flags 0x05)
+>>> AO = 5000 mV <<<  (set status 0) — read the DMM now
+    AI1   5451.0 mV  std  13.4  (n=241, flags 0x05)
+summary (AO setpoint -> AI1 mean):
+   1000 mV ->   1067.4 mV  (AI1 - setpoint  +67.4 mV)
+   2500 mV ->   2711.6 mV  (AI1 - setpoint +211.6 mV)
+   5000 mV ->   5451.0 mV  (AI1 - setpoint +451.0 mV)
+AO left at 5000 mV
