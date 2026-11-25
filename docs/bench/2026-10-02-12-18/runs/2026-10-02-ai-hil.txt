@@ -1,0 +1,10 @@
+tests/test_analog_cal.py::test_get_analog_cal_shape PASSED               [ 11%]
+tests/test_analog_cal.py::test_get_analog_in_raw_shape PASSED            [ 22%]
+tests/test_analog_cal.py::test_analog_in_flags_match_record PASSED       [ 33%]
+tests/test_analog_cal.py::test_deadband_round_trip PASSED                [ 44%]
+tests/test_analog_cal.py::test_set_analog_cal_refused_while_displaying PASSED [ 55%]
+tests/test_analog_cal.py::test_set_analog_cal_rejects_bad_args PASSED    [ 66%]
+tests/test_analog_cal.py::test_two_point_calibration_channel2 PASSED     [ 77%]
+tests/test_io_roles.py::test_get_analog_in_shape PASSED                  [ 88%]
+tests/test_io_roles.py::test_get_analog_in_repeatable PASSED             [100%]
+======================= 9 passed, 9 deselected in 0.44s =======================

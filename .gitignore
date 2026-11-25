@@ -8,3 +8,5 @@ logs
 _autosave*
 *.swp
 *.history
+*FCBak
+*bak

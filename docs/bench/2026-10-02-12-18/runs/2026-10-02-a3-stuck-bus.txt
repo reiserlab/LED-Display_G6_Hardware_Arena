@@ -1,0 +1,195 @@
+port COM5; scanning for 60 s — short SDA to GND now and then
+     0.0s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 274280
+     0.3s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 274593
+     0.6s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 274906
+     1.0s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 275219
+     1.3s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 275532
+     1.6s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 275846
+     1.9s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 276159
+     2.2s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 276472
+     2.5s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 276785
+     2.8s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 277098
+     3.1s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 277411
+     3.5s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 277724
+     3.8s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 278038
+     4.1s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 278351
+     4.4s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 278664
+     4.7s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 278977
+     5.0s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 279290
+     5.3s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 279604
+     5.6s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 279917
+     6.0s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 280230
+     6.3s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 280543
+     6.6s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 280856
+     6.9s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 281169
+     7.2s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 281483
+     7.5s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 281796
+     7.8s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 282108
+     8.2s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 282422
+     8.5s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 282735
+     8.8s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 283048
+     9.1s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 283361
+     9.4s  status 4      17 ms  devices []  uptime 283679
+     9.7s  status 4      16 ms  devices []  uptime 283996
+    10.0s  status 4      17 ms  devices []  uptime 284314
+    10.4s  status 4      16 ms  devices []  uptime 284631
+    10.7s  status 4      17 ms  devices []  uptime 284948
+    11.0s  status 4      16 ms  devices []  uptime 285265
+    11.3s  status 4      17 ms  devices []  uptime 285582
+    11.6s  status 4      16 ms  devices []  uptime 285899
+    11.9s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 286212
+    12.3s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 286525
+    12.6s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 286838
+    12.9s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 287151
+    13.2s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 287464
+    13.5s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 287777
+    13.8s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 288090
+    14.1s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 288403
+    14.4s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 288716
+    14.8s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 289029
+    15.1s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 289343
+    15.4s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 289656
+    15.7s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 289969
+    16.0s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 290282
+    16.3s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 290595
+    16.6s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 290908
+    17.0s  status 4      17 ms  devices []  uptime 291225
+    17.3s  status 4      16 ms  devices []  uptime 291542
+    17.6s  status 4      17 ms  devices []  uptime 291859
+    17.9s  status 4      16 ms  devices []  uptime 292176
+    18.2s  status 4      16 ms  devices []  uptime 292493
+    18.5s  status 4      16 ms  devices []  uptime 292810
+    18.9s  status 4      17 ms  devices []  uptime 293127
+    19.2s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 293440
+    19.5s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 293753
+    19.8s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 294066
+    20.1s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 294380
+    20.4s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 294693
+    20.7s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 295006
+    21.1s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 295320
+    21.4s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 295633
+    21.7s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 295946
+    22.0s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 296259
+    22.3s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 296573
+    22.6s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 296886
+    22.9s  status 4      17 ms  devices []  uptime 297203
+    23.3s  status 4      17 ms  devices []  uptime 297521
+    23.6s  status 4      16 ms  devices []  uptime 297838
+    23.9s  status 4      17 ms  devices []  uptime 298155
+    24.2s  status 4      17 ms  devices []  uptime 298472
+    24.5s  status 4      17 ms  devices []  uptime 298790
+    24.8s  status 4      17 ms  devices []  uptime 299107
+    25.2s  status 4      17 ms  devices []  uptime 299425
+    25.5s  status 4      17 ms  devices []  uptime 299743
+    25.8s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 300056
+    26.1s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 300369
+    26.4s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 300682
+    26.7s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 300995
+    27.0s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 301309
+    27.4s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 301622
+    27.7s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 301935
+    28.0s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 302248
+    28.3s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 302561
+    28.6s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 302874
+    28.9s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 303188
+    29.2s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 303501
+    29.6s  status 4      17 ms  devices []  uptime 303818
+    29.9s  status 4      17 ms  devices []  uptime 304135
+    30.2s  status 4      18 ms  devices []  uptime 304453
+    30.5s  status 4      17 ms  devices []  uptime 304771
+    30.8s  status 4      17 ms  devices []  uptime 305088
+    31.1s  status 4      17 ms  devices []  uptime 305406
+    31.5s  status 4      17 ms  devices []  uptime 305724
+    31.8s  status 4      17 ms  devices []  uptime 306042
+    32.1s  status 4      17 ms  devices []  uptime 306359
+    32.4s  status 4      17 ms  devices []  uptime 306676
+    32.7s  status 4      17 ms  devices []  uptime 306994
+    33.0s  status 4      17 ms  devices []  uptime 307312
+    33.4s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 307625
+    33.7s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 307938
+    34.0s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 308251
+    34.3s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 308564
+    34.6s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 308877
+    34.9s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 309190
+    35.2s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 309503
+    35.5s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 309816
+    35.9s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 310129
+    36.2s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 310442
+    36.5s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 310755
+    36.8s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 311068
+    37.1s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 311381
+    37.4s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 311694
+    37.7s  status 4      17 ms  devices []  uptime 312012
+    38.1s  status 4      16 ms  devices []  uptime 312329
+    38.4s  status 4      17 ms  devices []  uptime 312646
+    38.7s  status 4      17 ms  devices []  uptime 312964
+    39.0s  status 4      17 ms  devices []  uptime 313281
+    39.3s  status 4      17 ms  devices []  uptime 313598
+    39.6s  status 4      17 ms  devices []  uptime 313915
+    40.0s  status 4      17 ms  devices []  uptime 314232
+    40.3s  status 4      17 ms  devices []  uptime 314550
+    40.6s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 314863
+    40.9s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 315176
+    41.2s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 315490
+    41.5s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 315803
+    41.8s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 316116
+    42.2s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 316429
+    42.5s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 316742
+    42.8s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 317055
+    43.1s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 317368
+    43.4s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 317681
+    43.7s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 317994
+    44.0s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 318308
+    44.4s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 318620
+    44.7s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 318934
+    45.0s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 319247
+    45.3s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 319560
+    45.6s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 319873
+    45.9s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 320186
+    46.2s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 320499
+    46.5s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 320812
+    46.9s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 321126
+    47.2s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 321439
+    47.5s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 321752
+    47.8s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 322065
+    48.1s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 322378
+    48.4s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 322691
+    48.7s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 323004
+    49.0s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 323317
+    49.4s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 323631
+    49.7s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 323944
+    50.0s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 324257
+    50.3s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 324570
+    50.6s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 324883
+    50.9s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 325197
+    51.2s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 325510
+    51.6s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 325824
+    51.9s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 326137
+    52.2s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 326450
+    52.5s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 326763
+    52.8s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 327076
+    53.1s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 327389
+    53.4s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 327703
+    53.7s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 328015
+    54.1s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 328329
+    54.4s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 328641
+    54.7s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 328955
+    55.0s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 329268
+    55.3s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 329581
+    55.6s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 329894
+    55.9s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 330208
+    56.3s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 330521
+    56.6s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 330834
+    56.9s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 331147
+    57.2s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 331460
+    57.5s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 331773
+    57.8s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 332087
+    58.1s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 332400
+    58.4s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 332714
+    58.8s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 333027
+    59.1s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 333340
+    59.4s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 333653
+    59.7s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 333967
+    60.0s  status 0      13 ms  devices ['0x10', '0x29', '0x39']  uptime 334280
+DONE: 45 stuck-bus scans (status 4), worst scan 18 ms, resets/drops 0
+PASS
