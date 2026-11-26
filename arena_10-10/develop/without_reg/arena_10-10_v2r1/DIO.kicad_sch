@@ -5,10 +5,10 @@
 	(uuid "a196cb3a-5ecf-4f68-958b-409b6d678b1e")
 	(paper "A4")
 	(title_block
-		(title "G6 Teensy 10-14 Arena")
-		(date "2026-10-26")
-		(rev "v1.0")
-		(company "Reiser Lab @ Janelia | HHMI")
+		(title "G6 Teensy 10-10 Arena")
+		(date "2026-11-25")
+		(rev "v2.1.0")
+		(company "IORodeo for Reiser Lab @ Janelia | HHMI")
 	)
 	(lib_symbols
 		(symbol "Connector:Conn_Coaxial"

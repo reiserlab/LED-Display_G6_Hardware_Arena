@@ -6,8 +6,8 @@
 	(paper "User" 279.4 355.6)
 	(title_block
 		(title "G6 Teensy 10-10 Arena")
-		(date "2026-04-28")
-		(rev "v1.1.7")
+		(date "2026-11-25")
+		(rev "v2.1.0")
 		(company "IORodeo for Reiser Lab @ Janelia | HHMI")
 	)
 	(lib_symbols
@@ -995,7 +995,7 @@
 				)
 			)
 			(property "Description" "Unpolarized capacitor, small symbol"
-				(at 0 0 0)
+				(at 0 -10.16 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
@@ -1045,7 +1045,7 @@
 						(xy -1.524 -0.508) (xy 1.524 -0.508)
 					)
 					(stroke
-						(width 0.3302)
+						(width 0.3048)
 						(type default)
 					)
 					(fill
