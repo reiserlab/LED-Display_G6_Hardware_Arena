@@ -6,8 +6,8 @@
 	(paper "User" 508 482.6)
 	(title_block
 		(title "G6 Teensy 10-10 Arena")
-		(date "2026-11-25")
-		(rev "v2.1.3")
+		(date "2026-11-26")
+		(rev "v2.1.4")
 		(company "IORodeo for Reiser Lab @ Janelia | HHMI")
 	)
 	(lib_symbols
@@ -8243,6 +8243,28 @@
 				)
 			)
 		)
+		(property "Manufacturer" "YAGEO"
+			(at 80.01 234.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "RC0603JR-074K7L"
+			(at 80.01 234.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "6d5ddedf-d107-46ba-a38c-24d795f1c376")
 		)
@@ -8412,6 +8434,28 @@
 				)
 			)
 		)
+		(property "Manufacturer" "SXN"
+			(at 91.44 205.74 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "SM4532-220MT"
+			(at 91.44 205.74 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "bdbffc8e-c0fb-4dad-bb75-62531ed45c3f")
 		)
@@ -8505,6 +8549,28 @@
 				)
 			)
 		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 237.49 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "25121WJ0102T4E"
+			(at 237.49 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "f20a84fb-5799-438a-9c86-771a69b5e0de")
 		)
@@ -8588,6 +8654,28 @@
 			)
 		)
 		(property "LCSC Part #" "C11702"
+			(at 276.86 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 276.86 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF1001TCE"
 			(at 276.86 78.74 0)
 			(hide yes)
 			(show_name no)
@@ -8924,6 +9012,28 @@
 				)
 			)
 		)
+		(property "Manufacturer" "Littelfuse"
+			(at 95.25 81.28 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0451008.MRL"
+			(at 95.25 81.28 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "15f4b4be-08e0-46dd-bd6d-eb797ba597f1")
 		)
@@ -9007,6 +9117,28 @@
 			)
 		)
 		(property "LCSC Part #" "C49010116"
+			(at 250.19 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "FOJAN"
+			(at 250.19 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "FRC0402F3652TS"
 			(at 250.19 125.73 0)
 			(hide yes)
 			(show_name no)
@@ -9344,6 +9476,28 @@
 				)
 			)
 		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 114.3 147.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL05B104KB54PNC"
+			(at 114.3 147.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "b5e7e4d9-7524-4f9e-ae8d-30b6a4ad7073")
 		)
@@ -9427,6 +9581,28 @@
 			)
 		)
 		(property "LCSC Part #" "C108769"
+			(at 204.47 207.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Changzhou Amass Elec"
+			(at 204.47 207.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "XT30UPB-F30.G.Y"
 			(at 204.47 207.01 0)
 			(hide yes)
 			(show_name no)
@@ -9531,6 +9707,28 @@
 			)
 		)
 		(property "LCSC Part #" "C89632"
+			(at 104.14 210.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 104.14 210.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL31B106KBHNNNE"
 			(at 104.14 210.82 0)
 			(hide yes)
 			(show_name no)
@@ -9701,6 +9899,28 @@
 			)
 		)
 		(property "LCSC Part #" "C307331"
+			(at 288.29 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 288.29 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL05B104KB54PNC"
 			(at 288.29 39.37 0)
 			(hide yes)
 			(show_name no)
@@ -10196,6 +10416,28 @@
 				)
 			)
 		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 130.81 147.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL31B106KBHNNNE"
+			(at 130.81 147.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "8c47b975-f1f2-49b1-a231-fa26948c7d25")
 		)
@@ -10289,6 +10531,28 @@
 				)
 			)
 		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 411.48 128.27 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL05B104KB54PNC"
+			(at 411.48 128.27 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "c1604b7f-8070-4ca9-bdbc-3687c6ce0472")
 		)
@@ -10372,6 +10636,28 @@
 			)
 		)
 		(property "LCSC Part #" "C4109"
+			(at 391.16 128.27 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 391.16 128.27 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF2001TCE"
 			(at 391.16 128.27 0)
 			(hide yes)
 			(show_name no)
@@ -10630,6 +10916,28 @@
 				)
 			)
 		)
+		(property "Manufacturer" "YAGEO"
+			(at 229.87 63.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CC0402KRX7R9BB102"
+			(at 229.87 63.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "7476e88a-ef14-44b5-97b1-cf3f75336917")
 		)
@@ -10878,6 +11186,28 @@
 				)
 			)
 		)
+		(property "Manufacturer" "Littelfuse"
+			(at 173.99 114.3 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "SMCJ20A"
+			(at 173.99 114.3 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "952001b0-8949-4adf-9107-7344f134e78c")
 		)
@@ -11041,6 +11371,28 @@
 			)
 		)
 		(property "LCSC Part #" "C29823"
+			(at 92.71 222.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "FH"
+			(at 92.71 222.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "1206B475K500NT"
 			(at 92.71 222.25 0)
 			(hide yes)
 			(show_name no)
@@ -11617,6 +11969,28 @@
 				)
 			)
 		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 312.42 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF2700TCE"
+			(at 312.42 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "a53b936a-5f2b-4caf-893d-6219f9c75c3e")
 		)
@@ -11787,6 +12161,28 @@
 				)
 			)
 		)
+		(property "Manufacturer" "KEMET"
+			(at 330.2 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "C0402C222J3GACAUTO"
+			(at 330.2 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "61bf41fd-61fc-418e-bdbd-fab4859c6a91")
 		)
@@ -11867,6 +12263,28 @@
 			)
 		)
 		(property "LCSC Part #" "C25076"
+			(at 241.3 33.02 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 241.3 33.02 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF1000TCE"
 			(at 241.3 33.02 90)
 			(hide yes)
 			(show_name no)
@@ -11959,6 +12377,28 @@
 			)
 		)
 		(property "LCSC Part #" "C7502688"
+			(at 436.88 132.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "hongjiacheng"
+			(at 436.88 132.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "BAS40-04"
 			(at 436.88 132.08 0)
 			(hide yes)
 			(show_name no)
@@ -12312,6 +12752,28 @@
 				)
 			)
 		)
+		(property "Manufacturer" "MDD"
+			(at 360.68 128.27 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "B340A"
+			(at 360.68 128.27 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "b735011a-2023-402d-b629-882c93dc467b")
 		)
@@ -12395,6 +12857,28 @@
 			)
 		)
 		(property "LCSC Part #" "C707274"
+			(at 30.48 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Korean Hroparts Elec"
+			(at 30.48 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "DC-053D-20A"
 			(at 30.48 83.82 0)
 			(hide yes)
 			(show_name no)
@@ -12588,6 +13072,28 @@
 				)
 			)
 		)
+		(property "Manufacturer" "YAGEO"
+			(at 289.56 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CC0402KRX7R9BB103"
+			(at 289.56 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "32111594-8bdc-4d48-8800-448e816056ff")
 		)
@@ -12681,6 +13187,28 @@
 				)
 			)
 		)
+		(property "Manufacturer" "YAGEO"
+			(at 80.01 222.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "RC0603JR-074K7L"
+			(at 80.01 222.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "159d0d81-9516-4a2b-acc9-46e597a80997")
 		)
@@ -12719,7 +13247,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "D_TVS"
+		(property "Value" "TPD1E10B06"
 			(at 52.07 139.6999 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12764,6 +13292,28 @@
 			)
 		)
 		(property "LCSC Part #" "C48260"
+			(at 54.61 138.43 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 54.61 138.43 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "TPD1E10B06DPYR"
 			(at 54.61 138.43 90)
 			(hide yes)
 			(show_name no)
@@ -13024,6 +13574,28 @@
 				)
 			)
 		)
+		(property "Manufacturer" "YAGEO"
+			(at 74.93 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CC0402KRX7R9BB331"
+			(at 74.93 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "d44aff48-167e-428b-b5f6-1c6ea70a1a84")
 		)
@@ -13104,6 +13676,28 @@
 			)
 		)
 		(property "LCSC Part #" "C190095"
+			(at 401.32 114.3 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 401.32 114.3 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "RT0402BRD0710KL"
 			(at 401.32 114.3 90)
 			(hide yes)
 			(show_name no)
@@ -13442,6 +14036,28 @@
 				)
 			)
 		)
+		(property "Manufacturer" "YAGEO"
+			(at 59.69 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CC0402KRX7R9BB331"
+			(at 59.69 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "e22ab0b3-4f99-464d-beea-562eacbf1e44")
 		)
@@ -13525,6 +14141,28 @@
 			)
 		)
 		(property "LCSC Part #" "C132291"
+			(at 90.17 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "onsemi"
+			(at 90.17 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "FUSB302BMPX"
 			(at 90.17 110.49 0)
 			(hide yes)
 			(show_name no)
@@ -13657,6 +14295,28 @@
 			)
 		)
 		(property "LCSC Part #" "C307331"
+			(at 262.89 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 262.89 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL05B104KB54PNC"
 			(at 262.89 125.73 0)
 			(hide yes)
 			(show_name no)
@@ -13839,6 +14499,28 @@
 				)
 			)
 		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 120.65 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF2201TCE"
+			(at 120.65 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "b684000a-3412-49c5-b4a5-ddb83c69bde5")
 		)
@@ -14000,6 +14682,28 @@
 			)
 		)
 		(property "LCSC Part #" "C107026"
+			(at 276.86 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 276.86 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CC0402KRX7R9BB223"
 			(at 276.86 125.73 0)
 			(hide yes)
 			(show_name no)
@@ -14495,6 +15199,28 @@
 				)
 			)
 		)
+		(property "Manufacturer" "FH"
+			(at 92.71 234.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "1206B475K500NT"
+			(at 92.71 234.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "e6bdf8d8-9e4a-49d9-9418-d52c7de1aa9c")
 		)
@@ -14575,6 +15301,28 @@
 			)
 		)
 		(property "LCSC Part #" "C852538"
+			(at 219.71 43.18 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 219.71 43.18 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "RT0402BRD07150KL"
 			(at 219.71 43.18 90)
 			(hide yes)
 			(show_name no)
@@ -14757,6 +15505,28 @@
 				)
 			)
 		)
+		(property "Manufacturer" "TDK"
+			(at 342.9 128.27 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CGA4J2C0G1H223JT0Y0N"
+			(at 342.9 128.27 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "065ee42f-7c6d-43af-b2f1-36fb2a13e07c")
 		)
@@ -14849,6 +15619,28 @@
 				)
 			)
 		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 205.74 113.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL05B104KB54PNC"
+			(at 205.74 113.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "9a409c7e-e006-4b2d-bef1-c5b56cc6224f")
 		)
@@ -14931,6 +15723,28 @@
 			)
 		)
 		(property "LCSC Part #" "C89632"
+			(at 189.23 113.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 189.23 113.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL31B106KBHNNNE"
 			(at 189.23 113.03 0)
 			(hide yes)
 			(show_name no)
@@ -15191,6 +16005,28 @@
 				)
 			)
 		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 375.92 128.27 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL31B106KBHNNNE"
+			(at 375.92 128.27 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "166c6c33-4579-4f52-8f72-3779e54e7828")
 		)
@@ -15439,6 +16275,28 @@
 				)
 			)
 		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 321.31 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "TPS259823ONRGET"
+			(at 321.31 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "21"
 			(uuid "cd1c6d8f-fb20-454e-bf2c-855abc166112")
 		)
@@ -15591,6 +16449,28 @@
 				)
 			)
 		)
+		(property "Manufacturer" "RECOM"
+			(at 129.54 224.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "RB-0515D"
+			(at 129.54 224.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "f8c82cfb-1a10-4652-8197-b2830ab6a678")
 		)
@@ -15683,6 +16563,28 @@
 			)
 		)
 		(property "LCSC Part #" "C190095"
+			(at 391.16 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 391.16 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "RT0402BRD0710KL"
 			(at 391.16 100.33 0)
 			(hide yes)
 			(show_name no)
@@ -15863,6 +16765,28 @@
 				)
 			)
 		)
+		(property "Manufacturer" "hanxia"
+			(at 227.33 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "HX SS12D10G6-WJ"
+			(at 227.33 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "ef9bef40-4ade-403c-a111-a1c36a467443")
 		)
@@ -15983,7 +16907,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "D_TVS"
+		(property "Value" "TPD1E10B06"
 			(at 69.85 139.6999 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16028,6 +16952,28 @@
 			)
 		)
 		(property "LCSC Part #" "C48260"
+			(at 67.31 138.43 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 67.31 138.43 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "TPD1E10B06DPYR"
 			(at 67.31 138.43 90)
 			(hide yes)
 			(show_name no)
@@ -16121,6 +17067,28 @@
 			)
 		)
 		(property "LCSC Part #" "C25741"
+			(at 250.19 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 250.19 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF1003TCE"
 			(at 250.19 102.87 0)
 			(hide yes)
 			(show_name no)
@@ -16380,6 +17348,28 @@
 				)
 			)
 		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 259.08 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "TLV6710DDCR"
+			(at 259.08 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "a71fadd5-76b2-4ae4-bb6b-db78e4c7d5cd")
 		)
@@ -16552,6 +17542,28 @@
 			)
 		)
 		(property "LCSC Part #" "C3039295"
+			(at 29.21 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Hanbo Electronic"
+			(at 29.21 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "MC-107DMS"
 			(at 29.21 120.65 0)
 			(hide yes)
 			(show_name no)
@@ -16853,6 +17865,28 @@
 				)
 			)
 		)
+		(property "Manufacturer" "YAGEO"
+			(at 219.71 63.5 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "RT0402BRD0712KL"
+			(at 219.71 63.5 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "1d9ac7e4-24b8-44b4-b7ea-86856c288a1f")
 		)
@@ -16936,6 +17970,28 @@
 			)
 		)
 		(property "LCSC Part #" "C594142"
+			(at 204.47 233.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "JST"
+			(at 204.47 233.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "B2B-PH-K-E(LF)(SN)"
 			(at 204.47 233.68 0)
 			(hide yes)
 			(show_name no)
