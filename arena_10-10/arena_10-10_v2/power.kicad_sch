@@ -6,8 +6,8 @@
 	(paper "User" 508 482.6)
 	(title_block
 		(title "G6 Teensy 10-10 Arena")
-		(date "2026-11-25")
-		(rev "v2.1.3")
+		(date "2026-11-26")
+		(rev "v2.1.4")
 		(company "IORodeo for Reiser Lab @ Janelia | HHMI")
 	)
 	(lib_symbols
@@ -16438,6 +16438,17 @@
 				)
 			)
 		)
+		(property "Description" ""
+			(at 129.54 224.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(property "Manufacturer" "RECOM"
 			(at 129.54 224.79 0)
 			(hide yes)
@@ -16450,17 +16461,6 @@
 			)
 		)
 		(property "MPN" "RB-0515D"
-			(at 129.54 224.79 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
 			(at 129.54 224.79 0)
 			(hide yes)
 			(show_name no)
