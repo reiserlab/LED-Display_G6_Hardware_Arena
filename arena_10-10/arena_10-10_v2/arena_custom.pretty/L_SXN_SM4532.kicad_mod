@@ -1,0 +1,123 @@
+(footprint "L_SXN_SM4532"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(descr "SXN (Shunxiangnuo) SM4532 unshielded SMD power inductor, body 4.5x4.0x3.2mm; land pattern per datasheet: pads 1.75x4.5mm, 1.5mm gap (LCSC C9897)")
+	(tags "inductor SM4532 SXN drum")
+	(property "Reference" "REF**"
+		(at 0 -3.45 0)
+		(layer "F.SilkS")
+		(uuid "30bc9d2f-b4af-4e21-885e-8697e9439f51")
+		(effects
+			(font
+				(size 1.0 1.0)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "L_SXN_SM4532"
+		(at 0 3.45 0)
+		(layer "F.Fab")
+		(uuid "759108a9-07f9-4d42-a9d1-36628307c345")
+		(effects
+			(font
+				(size 1.0 1.0)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" "https://www.lcsc.com/product-detail/C9897.html"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "b5a7ee18-ab5a-4cac-aa89-b59bf8ec216f")
+		(effects
+			(font
+				(size 1.0 1.0)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" "SXN SM4532 power inductor, 4.5x4.0mm"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "a66a2d47-38b9-42b0-97ce-6f539779c52e")
+		(effects
+			(font
+				(size 1.0 1.0)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_line
+		(start -0.45 -2.11)
+		(end 0.45 -2.11)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "12726629-a921-4a37-ad52-0b7d0acee168")
+	)
+	(fp_line
+		(start -0.45 2.11)
+		(end 0.45 2.11)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "85d3eec0-2ebe-4f40-a422-0cf39f75703f")
+	)
+	(fp_rect
+		(start -2.75 -2.5)
+		(end 2.75 2.5)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "80cf0f92-c080-43d0-97da-219005ccd1db")
+	)
+	(fp_rect
+		(start -2.25 -2.0)
+		(end 2.25 2.0)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "7eee007f-de99-4aac-9d6e-befff895a778")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(uuid "40f3ebf1-4f37-4edf-b60b-6a63a3e1ac86")
+		(effects
+			(font
+				(size 1.0 1.0)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" smd roundrect
+		(at -1.625 0)
+		(size 1.75 4.5)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.142857)
+		(uuid "f5777171-94b9-46dc-b36d-b19e1ff08fb9")
+	)
+	(pad "2" smd roundrect
+		(at 1.625 0)
+		(size 1.75 4.5)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.142857)
+		(uuid "eb64693c-bf1f-405d-bef3-b6897e03f7f3")
+	)
+	(embedded_fonts no)
+)

@@ -3,10 +3,15 @@
 old
 logs
 ~_autosave*
-*/production/backups
+**/production/backups/
 *.lck
 _autosave*
 *.swp
-
+*.history
 *FCBak
 *bak
+
+# kicad review tooling output
+analysis/
+arena_10-10/*/datasheets/
+arena_10-10/develop/**/datasheets/
