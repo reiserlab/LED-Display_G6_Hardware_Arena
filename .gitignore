@@ -13,4 +13,5 @@ _autosave*
 
 # kicad review tooling output
 analysis/
+arena_10-10/*/datasheets/
 arena_10-10/develop/**/datasheets/
