@@ -15,3 +15,6 @@ _autosave*
 analysis/
 arena_10-10/*/datasheets/
 arena_10-10/develop/**/datasheets/
+
+# KiCad footprint cache (regenerated on every machine)
+fp-info-cache

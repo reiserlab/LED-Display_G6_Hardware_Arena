@@ -1352,6 +1352,28 @@
 				)
 			)
 		)
+		(property "Manufacturer" "BOOMELE"
+			(at 161.29 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "2.54-1*5PFemale"
+			(at 161.29 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(property "FT Rotation Offset" "90"
 			(at 161.29 69.85 0)
 			(hide yes)
@@ -1488,6 +1510,28 @@
 			)
 		)
 		(property "LCSC Part #" "C7432790"
+			(at 151.13 59.69 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Chinocera"
+			(at 151.13 59.69 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "HGC1210R5107M160NSVK"
 			(at 151.13 59.69 90)
 			(hide yes)
 			(show_name no)
@@ -1727,6 +1771,28 @@
 			)
 		)
 		(property "LCSC Part #" "C50950"
+			(at 161.29 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "BOOMELE"
+			(at 161.29 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "2.54-1*5PFemale"
 			(at 161.29 85.09 0)
 			(hide yes)
 			(show_name no)
@@ -2103,6 +2169,28 @@
 			)
 		)
 		(property "LCSC Part #" "C118413"
+			(at 154.94 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Littelfuse"
+			(at 154.94 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "1206L150THWR"
 			(at 154.94 50.8 0)
 			(hide yes)
 			(show_name no)
